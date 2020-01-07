@@ -1,0 +1,305 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.quiet {
+  color: hsl(0,0%,60%);
+}
+
+.tos {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.background {
+    z-index: -900;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.background .leftLarge, .background .rightLarge{
+    position: absolute;
+    width: 400px;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    max-width: 30%;
+}
+
+.background .rightLarge{
+  right: 0;
+}
+
+.trello-main-logo {
+    height: 43px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.p1-h1 {
+   font-size: "36pt"; 
+   margin-top: "50px";
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.global-footer-list {
+  list-style-type: none;
+  overflow: auto;
+  padding: 0px;
+  margin: 1.25em 0;
+  color: #555;
+}
+
+.global-footer-list-item, .global-footer-list-item1 {
+  display: inline-block;
+  text-decoration: underline;
+  margin: 0 0.4em;
+}
+
+.global-footer-list-item1 {
+  text-decoration: none;
+}
+
+.global-footer-list-item-link{
+  color: #8993A4;
+}
+
+.global-footer-list-item-link:hover{
+  color: #4d4d4d;
+}
+
+.btnP1:hover {
+  background-color: green!important;
+}
+
+.btnP2:hover {
+  background-color: #5b7b8e!important;
+}
+
+.btnP5:hover {
+  background-color: #d5d7e0!important;
+}
+
+.imgP6 {
+  margin: 0px 5px;
+  opacity: .8;
+}
+
+.imgP6:hover {
+  opacity: 1;
+}
+
+.form {
+  align-items: center;
+  font-size: 14px;
+  background-color: #FAFBFC;
+  border: 2px solid #DFE1E6;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: flex;
+  height: 44px;
+  margin: 10px 0px;
+  padding-left: 5px;
+  -webkit-transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
+  transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
+  width: 100%;
+}
+
+.form-input {
+  box-sizing: border-box;
+  color: inherit;
+  cursor: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  min-width: 0px;
+  width: 100%;
+  background: transparent;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+}
+
+.form-focus {
+    background-color: white;
+    border: 2px solid #4C9AFF;
+    box-shadow: 0 0 0;
+}
+
+.password_strength_container {
+  height: 2px;
+  margin-top: 5px;
+  position: relative;
+  background: rgb(223, 225, 230);
+}
+
+.password_strength {
+  bottom: 0px;
+  left: 19%;
+  position: absolute;
+  right: 19%;
+  top: 0px;
+  border-left: 5px solid rgb(255, 255, 255);
+  border-right: 5px solid rgb(255, 255, 255);
+}
+
+.password_strength:after {
+  bottom: 0px;
+  content: "";
+  left: 30%;
+  position: absolute;
+  right: 30%;
+  top: 0px;
+  border-left: 5px solid rgb(255, 255, 255);
+  border-right: 5px solid rgb(255, 255, 255);
+}
+
+.password_str::before {
+  bottom: 0px;
+  content: "";
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  background: rgb(0, 135, 90);
+  transition: all 0.2s ease-out 0s;
+}
+
+.btn-login {
+  background-color: #5AAC44;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin: 10px 0px;
+  padding: 4px 14px;
+  width: 100%;
+}
+
+.google-button {
+  background: #fff;
+    color: rgba(0,0,0,0.54);
+    box-shadow: rgba(0,0,0,0.2) 1px 1px 5px 0;
+    border-color: transparent;
+    text-align: center;
+    border-radius: 3px;
+    width: 99%;
+    height: 39px;
+    padding-top: 0;
+    margin-bottom: 0;
+    -webkit-transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
+    transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
+}
+
+.google-button:active {
+    background: #eee;
+    border: 2px solid #CDD2D4;
+}
+
+.icon {
+    background: url('https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/8215f6659adc202403198fef903a447e/sign-in-with-google.svg') 0 50% no-repeat;
+    width: 18px;
+    height: 18px;
+
+    display: inline-block;
+    border-radius: 1px;
+    vertical-align: middle;
+}
+
+.label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: bold;
+    color: #505f79;
+    padding: 3px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.btn-login:hover {
+  background-color: #61BD4F;
+}
+
+.bottom-attention {
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    padding: 0;
+}
+
+.bottom-attention li {
+  display: inline-block;
+}
+
+.bottom-attention li:not(:first-child)::before {
+    content: "\2022";
+    margin: 0 8px 0px 4px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 991px){
+  .l-email{
+    display: none;
+  }
+  .textAlignCenter {
+    text-align: center;
+  }
+  .p1-h1{
+    font-size: 24pt;
+  }
+  .p1-1{
+    order: 1;
+  }
+  .p1-2{
+    order: 3;
+  }
+  .p1-3{
+    order: 2;
+    margin: auto;
+  }
+}

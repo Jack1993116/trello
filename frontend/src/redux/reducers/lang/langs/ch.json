@@ -1,0 +1,56 @@
+{
+	"pt1":{
+		"h1":"Trello 让您能开展更多的协作，完成更多的工作。",
+		"p":"Trello 看板、列表和卡片使你能够以一种有趣、灵活和有益的方式，组织你的项目并划分它们的优先顺序。",
+		"btn":"注册 – 免费！"
+	},
+	"pt2":{
+		"h3":"与任何团队合作",
+		"p1":"无论是工作、附属项目还是下一次家庭度假，Trello 都可以让您的团队保持井井有条。",
+		"p2":"开始进行 →"
+	},
+	"pt3":{
+		"h3":"信息一览",
+		"p":"通过将评论、附件、到期时间等等直接添加到 Trello 卡片上，从而了解更为详细的信息。在项目从始至终的运作过程中实现协作。"
+	},
+	"pt4":{
+		"h3":"Built-In Workflow Automation With Butler",
+		"p":"Let the robots do the work! Boost productivity by unleashing the power of automation across your entire team with Butler, and remove tedious tasks from your to-do lists with:",
+		"li":["Rule-Based Triggers",
+		"Custom Card & Board Buttons",
+		"Calendar Commands",
+		"Due Date Commands"]
+	},
+	"pt5":{
+		"h3":"See how it works.",
+		"p":"Go from idea to action in seconds with Trello’s intuitively simple boards, lists, and cards."
+	},
+	"pt6":{
+		"h3":"Trello your way",
+		"p":"It’s easy to get your team up and running with Trello. We’ve collected all of the boards and tools you need to succeed in one handy resource.",
+		"c1":{
+			"h3":"The Team Playbook",
+			"p1":"It’s easy to get your team up and running with Trello. We’ve collected all of the boards and tools you need to succeed in one handy resource.",
+			"p2":"Make A Game Plan"
+		},
+		"c3":{
+			"h3":"Always In Sync",
+			"p1":"No matter where you are, Trello stays in sync across all of your devices. Collaborate with your team anywhere, from sitting on the bus to sitting on the beach."
+		},
+		"c2":{
+			"h3":"A Productivity Platform",
+			"p1":"Integrate the apps your team already uses directly into your workflow. Power-Ups turn Trello boards into living applications to meet your team's unique business needs.",
+			"p2":"Power-Up Your Workflow"
+		}
+	},
+	"pt7":{
+		"h2":"Work smarter with Trello",
+		"p1":"Companies of all shapes and sizes use Trello.",
+		"p2":"Find out how →"
+	},
+	"pt8":{
+		"h3":"Start Planning Today",
+		"p":"Sign up and become one of the millions of people around the world using Trello to get more done.",
+		"btn":"Sign Up-It's Free"
+	}
+}

@@ -1,0 +1,158 @@
+.carouselBoard{
+	position: relative;
+}
+
+.board {
+    /*background: linear-gradient(#3EB9DE, #3A80DE);*/
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(74,115,159,0.29);
+	background-image: url('./board-back.jpg');
+	border-radius: 20px;
+	cursor: pointer;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    max-width: 880px;
+}
+
+.captions {
+	background-color: rgba(48,54,76,0.8);
+    bottom: 0;
+    color: white;
+    font-weight: bold;
+    left: 0;
+    padding: 15px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.caption {
+	display: none;
+}
+
+.captionS {
+	display: block;
+}
+
+.leftArrow, .rightArrow {
+	align-items: center;
+	border-radius: 50%;
+	background-color: white;
+	box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15);
+	display: flex;
+	height: 80px;
+	justify-content: center;
+	line-height: 80px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 80px;
+	z-index: 1;
+}
+.leftArrow:hover, .rightArrow:hover {
+	background-color: #00c2e0;
+}
+
+.leftArrow {
+	left: -10px;
+}
+
+.rightArrow {
+	right: -10px;
+}
+
+.carouselN {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 10px auto 5px;
+}
+
+.carouselN a{
+    display: block;
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 30px;
+}
+
+.carouselN a:after{
+	background-color: #6D8EA2;
+    border-radius: 50%;
+    content: "";
+    height: 10px;
+    left: 50%;
+    margin: -5px 0 0 -5px;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    width: 10px;
+}
+
+.carouselN a:hover:after {
+	background-color: #00C2E0;
+}
+
+.carouselN a.step:after  {
+    background-color: #00C2E0;
+    height: 15px;
+    margin: -7.5px 0 0 -7.5px;
+    width: 15px
+}
+
+.robot {
+	background-image: url(https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/29ebb9898948a581f7948952ba3811fd/robot.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*display: none;*/
+    height: 188px;
+    top: 0px;
+    position: absolute;
+    -webkit-transform:translateX(280px, 45px) rotate(20deg);
+    transform:translate(280px, 45px) rotate(20deg);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    width: 179px;
+    z-index: 2;
+}
+
+.robot-1 {
+	transform: translate(650px, 45px) rotate(20deg);
+}
+
+.robot-2 {
+	transform: translate(650px, 130px);
+}
+
+.robot-3 {
+	transform: translate(650px, 60px);
+}
+
+.robot-4 {
+	transform: translate(600px, -25px);
+}
+
+@media (max-width: 767px){
+	.robot {
+		display: none;
+	}
+    .leftArrow, .rightArrow {
+        display: none;
+    }
+}
