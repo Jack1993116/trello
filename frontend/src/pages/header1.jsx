@@ -21,6 +21,9 @@ const Header1 = () => {
 				</MDBNavbarBrand>
 				<MDBNavbarNav right style={{flexDirection: "row"}}>
 					<MDBNavItem>
+						<MDBNavLink to="/main">Log In0</MDBNavLink>
+					</MDBNavItem>
+					<MDBNavItem>
 						<MDBNavLink to="/login">Log In</MDBNavLink>
 					</MDBNavItem>
 					<MDBNavItem style={{backgroundColor: "white", borderRadius: "5px"}}>

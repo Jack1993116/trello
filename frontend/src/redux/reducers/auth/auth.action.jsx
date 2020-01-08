@@ -1,4 +1,5 @@
 import UserActionTypes from './auth.action.type';
+import setAuthToken from '../../../api/utils/setAuthToken';
 
 export const emailLoginStart = (emailAndPassword) => {
 	console.log(emailAndPassword);
@@ -32,6 +33,7 @@ export const emailSignInStart = (emailAndPassword) => {
 
 export const signUpSuccess = (user_token) => {
 	localStorage.setItem('jwt_token', user_token.token);
+	setAuthToken(localStorage.getItem('jwt_token'));
 	return {
 		type: UserActionTypes.SIGN_UP_SUCCESS,
 		payload: user_token

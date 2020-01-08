@@ -11,6 +11,7 @@ import Header1 from './pages/header1';
 import Home from './pages/home';
 import Login from './pages/login';
 import Singup from './pages/signup';
+import Main from './pages/main';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </Route>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Singup} />
+        <Route path="/main" component={Main} />
       </Switch>
     </Router>
   );
