@@ -16,8 +16,8 @@ function* fetchAuthTokenSignupAsync(email_password) {
 
 function* fetchAuthTokenLoginAsync({payload}) {
 	try{
-		yield console.log(payload);
 		const user_token = yield axios.post("http://localhost:3000/login", payload).then(res=>res.data);
+		console.log(user_token);
 		yield put(loginSuccess(user_token));
 	} catch(err) {
 		yield put(loginFailure(err));

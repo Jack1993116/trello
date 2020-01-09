@@ -3,6 +3,7 @@ import { MDBContainer } from 'mdbreact';
 
 import { SideNav, SideNavItem } from '../utils/sidenav';
 import ContentBoard from './dashboard.part/content.boards';
+import { BoardListItemNew, BoardListItem } from './dashboard.part/boardlist.item/boardlist.item';
 
 const Dashboard = () => {
 	return (
@@ -15,7 +16,9 @@ const Dashboard = () => {
 								<a>AAA</a>
 							</SideNavItem>
 						</SideNav>
-						<ContentBoard />
+						<ContentBoard >
+							<BoardListItemNew />
+						</ContentBoard>
 					</div>
 				</div>
 			</MDBContainer>

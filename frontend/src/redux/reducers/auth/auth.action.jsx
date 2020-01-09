@@ -2,7 +2,6 @@ import UserActionTypes from './auth.action.type';
 import setAuthToken from '../../../api/utils/setAuthToken';
 
 export const emailLoginStart = (emailAndPassword) => {
-	console.log(emailAndPassword);
 	return {
 		type: UserActionTypes.EMAIL_LOGIN_START,
 		payload: emailAndPassword

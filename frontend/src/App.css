@@ -372,3 +372,9 @@
     margin: auto;
   }
 }
+
+@media (max-width: 715px) {
+  .toggle-span {
+    display: none;
+  }
+}

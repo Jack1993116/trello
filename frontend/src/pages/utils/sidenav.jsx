@@ -3,7 +3,7 @@ import React from 'react';
 const SideNav = ({children, sticky}) => {
 	return (
 		<div style={sticky?{position: "sticky", top: "0px"}:{}} >
-			<nav className="navbar" style={{width: "200px", boxShadow: "none", marginTop: "40px"}} >
+			<nav style={{width: "210px", boxShadow: "none", marginTop: "40px", display: "block"}} >
 				<ul className="navbar-nav">
 					{children}
 				</ul>
