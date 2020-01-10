@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, PrivateRoute } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import logo from './logo.svg';
 import './App.css';
@@ -13,6 +13,8 @@ import Login from './pages/login';
 import Singup from './pages/signup';
 import Main from './pages/main';
 
+import PrivateRoute from './api/utils/private.route';
+
 function App() {
   return (
     <Router>
@@ -23,7 +25,7 @@ function App() {
         </Route>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Singup} />
-        <Route path="/main" component={Main} />
+        <PrivateRoute path="/main" component={Main} />
       </Switch>
     </Router>
   );

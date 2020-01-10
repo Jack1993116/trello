@@ -4,10 +4,11 @@ import { takeEvery, takeLatest, put, all, call } from 'redux-saga/effects';
 import UserActionTypes from './auth.action.type';
 import { loginFailure, loginSuccess, signUpSuccess, signUpFailure } from './auth.action';
 
-function* fetchAuthTokenSignupAsync(email_password) {
+function* fetchAuthTokenSignupAsync(payload) {
 	try{
-		console.log(email_password);
-		const user_token = yield axios.post("http://localhost:3000/signup", email_password).then(res=>res.data);
+		console.log(payload);
+		const user_token = yield axios.post("http://localhost:3000/signup", payload).then(res=>res.data);
+		console.log(user_token);
 		yield put(signUpSuccess(user_token));
 	} catch(err) {
 		yield put(signUpFailure(err));

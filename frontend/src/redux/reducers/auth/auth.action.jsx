@@ -25,7 +25,7 @@ export const loginFailure = (error) => {
 
 export const emailSignInStart = (emailAndPassword) => {
 	return {
-		type: UserActionTypes.EMAIL_SIGN_IN_START,
+		type: UserActionTypes.SIGN_UP_START,
 		payload: emailAndPassword
 	}
 }

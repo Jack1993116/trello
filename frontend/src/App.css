@@ -377,4 +377,8 @@
   .toggle-span {
     display: none;
   }
+  .contentboard-flexing {
+    width: 0px;
+    flex: 1 1 100%;
+  }
 }

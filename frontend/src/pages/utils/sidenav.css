@@ -1,0 +1,41 @@
+.sidenav-link-a {
+	background-color: #e4f0f6;
+    color: #0079bf;
+}
+
+.sidenav-link-span {
+    align-items: center;
+    /*background-color: transparent;*/
+    border-radius: 4px;
+    box-shadow: none;
+    display: flex;
+    font-weight: 700;
+    margin: 0;
+    min-height: 20px;
+    overflow: hidden;
+    padding: 6px 8px 6px 0;
+    text-decoration: none;
+    transition-property: background-color,border-color,box-shadow;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+}
+
+.sidenav-link-span:hover {
+	background-color: rgba(9,30,66,.13);
+}
+
+.sidenav-link-span-color {
+	color: #0078bf;
+}
+
+.sidenav-link-span-1 {
+	display: block;
+	flex: 0 0 auto;
+	text-align: center;
+	width: 32px;
+    color: #42526e;
+}
+
+.sidenav-link-span-2 {
+	flex: 1 1 auto;
+}

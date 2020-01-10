@@ -1,6 +1,8 @@
 import React from 'react';
 import { MDBContainer, MDBCol, MDBRow } from 'mdbreact';
 
+import PrimaryBtn from '../../component/utils/primary.button';
+
 import '../../App.css';
 
 const Part1 = ({pt}) => {
@@ -17,7 +19,7 @@ const Part1 = ({pt}) => {
 					</MDBCol>
 					<form className="p1-3">
 						<input type="email" placeholder="Email" className="btn-lg l-email" style={{borderRadius: "5px", margin: "10px", width: "376px", fontSize: "1.5625rem", outline: "none", border: "none"}} />
-						<button type="button" className="success-color btn-lg btnP1" style={{outline: "none", width: "280px", border: "none", color: "white", fontSize: "1.5625rem"}} >{pt.btn} </button>
+						<PrimaryBtn size="lg">{pt.btn} </PrimaryBtn>
 					</form>
 				</MDBRow>
 			</MDBContainer>

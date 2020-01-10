@@ -1,7 +1,7 @@
 import UserActionTypes from './auth.action.type';
 
 const INIT_STATE = {
-	isLogin: false,
+	isLogin: true,
 	user: null,
 	status: null,
 	error: null,

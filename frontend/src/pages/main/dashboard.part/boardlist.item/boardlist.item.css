@@ -1,5 +1,5 @@
 .board-list-item {
-	width: 32%;
+	width: 23.5%;
 	margin-right: 2%;
 }
 
@@ -10,16 +10,90 @@
 .board-tile {
 	background-color: rgba(9,30,66,.04);
 	box-shadow: none;
-	border: none;
+	border-radius: 3px;
 	color: #172b4d;
 	cursor: pointer;
 	display: table-cell;
-	height: 80px;
+	height: 96px;
 	font-weight: 400;
+	padding: 8px;
+	position: relative;
 	text-align: center;
 	vertical-align: middle;
 	width: inherit;
 	transition-property: background-color,border-color,box-shadow;
 	transition-duration: 85ms;
 	transition-timing-function: ease;
+}
+
+.board-tile-fade {
+	/*background-color: rgba(0,0,0,.15);*/
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.board-tile-fade:hover {
+	background-color: rgba(0,0,0,.15);
+}
+
+.board-tile-detail {
+	color: white;
+	display: flex;
+    height: 80px;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.board-tile-details-sub-container {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+
+.board-tile-options {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-left: 4px;
+    overflow: hidden;
+    position: relative;
+    right: -4px;
+}
+
+.board-tile-details-name {
+    flex: 0 0 auto;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+    overflow: hidden;
+    max-height: 40px;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.board-tile-options-star-icon {
+    display: block;
+    line-height: 18px;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    font-size: 14px;
+    width: 0;
+    height: 18px;
+    opacity: 0;
+    transition-duration: .15s;
+    /*transition-property: color,background,opacity,transform,width,margin;*/
+    /*-webkit-transform: translateZ(0);*/
+}
+
+.board-tile:hover .board-tile-options-star-icon {
+    opacity: .75;
+    width: 18px;
+    margin-right: 6px;
 }
