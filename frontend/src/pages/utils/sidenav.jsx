@@ -21,7 +21,21 @@ const SideNavItem = ({children}) => {
 	)
 }
 
-const SideNavLink = ({ target, value}) => {
+const SideNavItemBtn = ({children, onClick}) => {
+	return (
+		<ul className="navbar-nav" onClick={onClick} >
+			<div>Teams</div>
+			<li style={{listStyle: "none"}} >
+				<button className="sidenav-btn" style={{width: "100%", marginLeft: "10px", border: "none", outline: "none"}} >
+					<span className="fa fa-plus"></span>
+					<span style={{flex: "1 1 auto", marginLeft: "10px"}} >Create Team</span>
+				</button>
+			</li>
+		</ul>
+	)
+}
+
+const SideNavLink = ({ target, value }) => {
 	const [active, setActive] = useState(false);
 	return (
 		<a className={active?"sidenav-link-a sidenav-link-span":"sidenav-link-span"} href={void(0)} onClick={()=>{setActive(true)}} onBlur={()=>{setActive(false)}} >
@@ -33,4 +47,4 @@ const SideNavLink = ({ target, value}) => {
 	)
 }
 
-export { SideNav, SideNavItem, SideNavLink };
+export { SideNav, SideNavItem, SideNavLink, SideNavItemBtn };

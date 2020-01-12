@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MDBRow, MDBContainer, MDBCol, MDBCard, MDBCardBody, MDBCardTitle } from 'mdbreact';
 import { connect } from 'react-redux';
 
@@ -15,8 +15,11 @@ import Background from '../component/utils/background';
 
 import {emailSignInStart} from '../redux/reducers/auth/auth.action'
 
-const Singup = ({signup}) => {
+const Singup = ({signup, isLogin, ...props}) => {
 	const [lost, setLost] = useState(false);
+	useEffect(()=>{
+		isLogin?props.history.push('/main'):props.history.push('/login');
+	})
 	return (
 		<Log>
 			<MDBCard>
@@ -48,10 +51,16 @@ const Singup = ({signup}) => {
 	)
 }
 
+const mapStateToProps = (state) => {
+	return ({
+		isLogin: state.auth.isLogin
+	})
+}
+
 const mapDispachToProps = (dispatch) => {
 	return {
 		signup: (data) => dispatch(emailSignInStart(data))
 	}
 }
 
-export default connect(null, mapDispachToProps)(Singup);
+export default connect(mapStateToProps, mapDispachToProps)(Singup);

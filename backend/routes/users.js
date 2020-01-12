@@ -6,7 +6,7 @@ var passport = require('passport');
 router.post('/', passport.authenticate('login'), 
 	(req, res, next) => {
 		console.log(req.user);
-		res.send('respond with a resource');
+		res.redirect('/main');
 });
 
 module.exports = router;

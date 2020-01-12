@@ -1,70 +1,53 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import PrimaryBtn from '../utils/primary.button';
 import '../../pages/main/dashboard.part/boardlist.item/boardlist.item.css';
 import './createboard.css';
 
-const CreateBoard = ({onClick}) => {
+const CreateBoard = ({show, onHide}) => {
+	const [check, setCheck] = useState(true);
+	const [title, setTitle] = useState("Private");
 	return (
-		<div className="window-overlay" >
-			<div className="window mod-no-chrome" style={{display: "block"}}>
-			    <a className="focus-dummy" href="#">
-			    </a>
-			    <div className="window-wrapper js-tab-parent" data-elevation="1">
-			        <div>
-			            <form className="create-board-form">
-			                <div className="form-container">
-			                    <div className="board-tile create-board-tile has-photo-background" style={{backgroundImage: `url("https://images.unsplash.com/photo-1578558455262-f95f61ac6ef4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjcwNjZ9")`}}>
-			                        <button className="hide-dialog-trigger unstyled-button" type="button" onClick={onClick}>
-			                            <span className="fa fa-times" />
-			                        </button>
-			                        <div>
-			                            <input className="subtle-input" data-test-id="create-board-title-input" placeholder="Add board title" value=""/>
-			                        </div>
-			                        <div>
-			                            <button className="subtle-chooser-trigger unstyled-button vis-chooser-trigger" type="button">
-			                                <span className="icon-sm icon-private">
-			                                </span>
-			                                Private
-			                                <span className="icon-sm icon-down subtle-chooser-trigger-dropdown-icon light">
-			                                </span>
-			                            </button>
-			                        </div>
-			                    </div>
-			                    <ul className="background-grid">
-			                        <li className="background-grid-item">
-			                            <button className="background-grid-trigger is-photo selected" style={{backgroundImage: `url("https://images.unsplash.com/photo-1578558455262-f95f61ac6ef4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjcwNjZ9")`}} type="button">
-			                                <span className="icon-sm icon-check">
-			                                </span>
-			                            </button>
-			                        </li>
-			                        <li className="background-grid-item">
-			                            <button className="background-grid-trigger" style={{backgroundColor: `rgb(0, 121, 191)`}} title="blue" type="button">
-			                            </button>
-			                        </li>
-			                    </ul>
-			                </div>
-			                <div className="action-items">
-			                    <button className="button primary disabled" data-test-id="create-board-submit-button" disabled="" type="submit">
-			                        <span className="logo-loading subtle">
-			                        </span>
-			                        <span>
-			                            Create Board
-			                        </span>
-			                    </button>
-			                    <a className="start-with-a-template" href="/templates">
-			                        <span className="icon icon-md icon-template-board light">
-			                        </span>
-			                        <span>
-			                            Start with a Template
-			                        </span>
-			                    </a>
-			                </div>
-			            </form>
-			        </div>
-			    </div>
-			</div>
-		</div>
+		<Modal id="createboard" show={show} onHide={onHide} >
+			<Modal.Body >
+				<div className="createboard-tile" style={{backgroundImage: `url("https://images.unsplash.com/photo-1578615437406-511cafe4a5c7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjcwNjZ9")`}}>
+					<button id="close" onClick={onHide} ><span className="fa fa-times" /></button>
+					<div>
+						<input type="text" placeholder="Add board title" data-test-id="create-board-title-input" className="subtle-input" />
+					</div>
+					<div>
+						<DropdownButton size="sm" title={title} >
+							<Dropdown.Item onClick={()=>{setTitle("Private"); setCheck(true)}} >
+								<span class="fa fa-lock icon-private"></span>
+								<span>Private</span>
+								{check&&<span class="fa fa-check"></span>}
+								<span class="sub-name">
+									<span>Only board members can see and edit this board.</span>
+								</span>
+							</Dropdown.Item>
+							<Dropdown.Item onClick={()=>{setTitle("Public"); setCheck(false)}} >
+								<span class="fa fa-globe-asia icon-public"></span>
+								<span>Public</span>
+								{!check&&<span class="fa fa-check"></span>}
+								<span class="sub-name">
+									<span>Anyone on the internet (including Google) can see this board. Only board members can edit.</span>
+								</span>
+							</Dropdown.Item>
+						</DropdownButton>
+					</div>
+				</div>
+				<ul className="background-grid">
+					<li className="background-grid-item">
+						<button className="background-grid-trigger is-photo selected" type="button" style={{backgroundImage: `url(https://images.unsplash.com/photo-1578615437406-511cafe4a5c7?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjcwNjZ9&quot;)`}}>
+							<span className="fa fa-check" style={{color: "white"}} />
+						</button>
+					</li>
+				</ul>
+			</Modal.Body>
+		</Modal>
 	)
 }
 

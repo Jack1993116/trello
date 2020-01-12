@@ -106,6 +106,15 @@
   background-color: green!important;
 }
 
+.btnP1:disabled {
+  background-color: gray!important;
+}
+
+.btnP1:disabled:hover {
+  
+  cursor: not-allowed;
+}
+
 .btnP2:hover {
   background-color: #5b7b8e!important;
 }
@@ -132,12 +141,17 @@
   box-sizing: border-box;
   border-radius: 3px;
   display: flex;
-  height: 44px;
   margin: 10px 0px;
-  padding-left: 5px;
+  padding: 5px;
   -webkit-transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
   transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
   width: 100%;
+}
+
+.form-txtarea {
+  background-color: #FAFBFC;
+  border: 2px solid #DFE1E6;
+
 }
 
 .form-input {
@@ -154,6 +168,7 @@
   border-color: initial;
   border-image: initial;
   outline: none;
+  padding: 8px 12px;
 }
 
 .form-focus {

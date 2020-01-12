@@ -1,0 +1,99 @@
+.create-container {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.createboard {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    overflow: auto;
+    width: 100vw;
+}
+
+.createboard-container {
+    padding: 0;
+    max-width: calc(100vw - 200px)!important;
+}
+
+.modal-content {
+    width: auto;
+}
+
+.modal-container {
+    align-items: stretch;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 8px 16px -4px rgba(9,30,66,.25), 0 0 0 1px rgba(9,30,66,.08);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    min-height: 500px;
+    outline: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.createboard-l {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0 24px;
+    overflow: auto;
+    text-align: left;
+    z-index: 3;
+    margin: 64px auto 16px;
+}
+
+.createboard-r {
+    align-items: center;
+    background-image: url("https://a.trellocdn.com/prgb/dist/images/create-team/wavy-border.1ea9c6f8c41d10be0e12.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 750px ) {
+    .modal-title {
+        flex-direction: column-reverse;
+    }
+    .createboard-r {
+        transform: scaleX(2) rotate(-90deg);
+        background-position: 110px;
+    }
+    .images {
+        transform: scaleY(.5) rotate(90deg);
+        padding-top: 40px;
+    }
+}
+
+button.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    outline: none;
+}
+
+.createboard-l .fonts {
+    font-size: 18px;
+    color: #6b778c;
+    margin: 12px auto 24px;
+}
+
+.createboard-l label {
+    display: block;
+    font-size: 14px;
+}
+
+.createboard-l span {
+    color: #6b778c;
+    font-size: 12px;
+    margin-bottom: 12px;
+}

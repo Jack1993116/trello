@@ -18,6 +18,7 @@ const userReducer = (state=INIT_STATE, action) => {
 			return {...state, error: error, status: "signup", isLogin: false };
 		case UserActionTypes.LOG_OUT:
 			localStorage.removeItem('jwt_token');
+			return {...state, isLogin:false }
 		default: return INIT_STATE;
 	}
 }

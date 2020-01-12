@@ -7,7 +7,7 @@ import { loginFailure, loginSuccess, signUpSuccess, signUpFailure } from './auth
 function* fetchAuthTokenSignupAsync(payload) {
 	try{
 		console.log(payload);
-		const user_token = yield axios.post("http://localhost:3000/signup", payload).then(res=>res.data);
+		const user_token = yield axios.post("http://localhost:3000/signup", payload).then(res=>{/*res.redirect('/main');*/ return res.data});
 		console.log(user_token);
 		yield put(signUpSuccess(user_token));
 	} catch(err) {

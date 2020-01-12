@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MDBRow, MDBContainer, MDBCol, MDBCard, MDBCardBody, MDBCardTitle } from 'mdbreact';
 import { connect } from 'react-redux';
 
@@ -14,7 +14,7 @@ import {emailLoginStart} from '../redux/reducers/auth/auth.action';
 
 import '../App.css';
 
-const Login = ({login}) => {
+const Login = ({login, isLogin, ...props}) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	return (
@@ -41,6 +41,12 @@ const Login = ({login}) => {
 			</ul>
 		</Log>
 	)
+}
+
+const mapStateToProps = (state) => {
+	return ({
+		isLogin: state.auth.isLogin
+	})
 }
 
 const mapDispachToProps = (dispatch) => {
