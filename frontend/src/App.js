@@ -12,6 +12,7 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Singup from './pages/signup';
 import Main from './pages/main';
+import Detail from './pages/detail';
 
 import PrivateRoute from './api/utils/private.route';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Singup} />
         <PrivateRoute path="/main" component={Main} />
+        <PrivateRoute path="/detail" component={Detail} />
       </Switch>
     </Router>
   );

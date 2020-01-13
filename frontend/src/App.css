@@ -7,6 +7,17 @@
   pointer-events: none;
 }
 
+.icons {
+  height: 32px;
+  width: 32px;
+  line-height: 35px!important;
+  text-align: center;
+}
+
+.blind {
+  display: none!important;
+}
+
 .quiet {
   color: hsl(0,0%,60%);
 }
@@ -102,12 +113,17 @@
   color: #4d4d4d;
 }
 
+.btnP1 {
+  outline: none;
+  border: none;
+}
+
 .btnP1:hover {
   background-color: green!important;
 }
 
 .btnP1:disabled {
-  background-color: gray!important;
+  background-color: #f4f5f6!important;
 }
 
 .btnP1:disabled:hover {

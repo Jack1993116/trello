@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -10,18 +10,24 @@ import './createboard.css';
 const CreateBoard = ({show, onHide}) => {
 	const [check, setCheck] = useState(true);
 	const [title, setTitle] = useState("Private");
+	const [board, setBoard] = useState("");
+	const [active, setActive] = useState(true);
+	const isActive = (board) => {
+		setBoard(board);
+		board.length?setActive(false):setActive(true);
+	}
 	return (
 		<Modal id="createboard" show={show} onHide={onHide} >
 			<Modal.Body >
 				<div className="createboard-tile" style={{backgroundImage: `url("https://images.unsplash.com/photo-1578615437406-511cafe4a5c7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjcwNjZ9")`}}>
 					<button id="close" onClick={onHide} ><span className="fa fa-times" /></button>
 					<div>
-						<input type="text" placeholder="Add board title" data-test-id="create-board-title-input" className="subtle-input" />
+						<input type="text" placeholder="Add board title" data-test-id="create-board-title-input" className="subtle-input" onChange={(e)=>{isActive(e.target.value)}} />
 					</div>
 					<div>
 						<DropdownButton size="sm" title={title} >
 							<Dropdown.Item onClick={()=>{setTitle("Private"); setCheck(true)}} >
-								<span class="fa fa-lock icon-private"></span>
+								<span className="fa fa-lock icon-private"></span>
 								<span>Private</span>
 								{check&&<span class="fa fa-check"></span>}
 								<span class="sub-name">
@@ -47,6 +53,13 @@ const CreateBoard = ({show, onHide}) => {
 					</li>
 				</ul>
 			</Modal.Body>
+			<Modal.Footer>
+				<PrimaryBtn size="sm" style={{fontSize: "12pt"}} disabled={active} >Create Board</PrimaryBtn>
+				<a className="start-with-a-template" href="/template" >
+					<span className="fa fa-user" style={{padding: "5px"}} />
+					<span>Start with a template</span>
+				</a>
+			</Modal.Footer>
 		</Modal>
 	)
 }

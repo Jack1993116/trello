@@ -24,7 +24,7 @@ const Dashboard = () => {
 							</SideNavItem>
 						</SideNav>
 						<ContentBoard >
-							<BoardListItem />
+							<BoardListItem title="Team" />
 							<BoardListItemNew onClick={()=>{setCreate(true)}} />
 						</ContentBoard>
 					</div>

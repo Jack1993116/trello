@@ -1,0 +1,103 @@
+.board-header {
+    height: 45px;
+    padding: 8px 4px 4px 8px;
+    position: relative;
+    transition: padding .1s ease-in;
+}
+
+.board-header-btn {
+    border-radius: 3px;
+    color: #fff;
+    cursor: default;
+    float: left;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 4px 4px 0;
+    overflow: hidden;
+    padding-left: 32px;
+    position: relative;
+    text-decoration: none;
+}
+
+.board-header-btns {
+	position: relative;
+	display: block;
+}
+
+.board-header-btn:hover {
+	color: white;
+}
+
+.board-header-btn.mod-board-name {
+    background: transparent;
+    cursor: default;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+    padding: 0;
+    text-decoration: none;
+    max-width: calc(100% - 24px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.board-header-btn-org-wrapper {
+    position: relative;
+    float: left;
+}
+
+.board-header-btn-icon {
+    background-clip: content-box;
+    background-origin: content-box;
+    color: #fff;
+    height: 20px;
+    width: 20px;
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.op {
+	display: flex;
+	justify-content: center;
+}
+
+#star, #invite, .op {
+	background-color: hsla(0, 0%, 100%, .35);
+}
+
+#invite {
+	padding-left: 24px;
+	cursor: pointer;
+}
+
+.mod-right {
+	float: right;
+}
+
+.board-header-btn-without-icon, .board-header-btn-text {
+	color: white;
+    padding-right: 12px;
+}
+
+.board-header-btn-divider {
+    float: left;
+    border-left: 1px solid hsla(0,0%,100%,.24);
+    height: 16px;
+    margin: 8px 8px 12px 4px;
+}
+
+.board-header-btn-invite {
+    margin-left: 8px;
+}
+
+.body-dark-board-background .board-canvas {
+    background: linear-gradient(180deg,rgba(0,0,0,.24) 0,rgba(0,0,0,.24) 48px,transparent 80px,transparent);
+}
+.board-canvas {
+    position: relative;
+    /*flex-grow: 1;*/
+}
