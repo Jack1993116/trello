@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import Header0 from '../header0';
 import DetailBoard from './detailboard';
 
-const Detail = () => {
+const Detail = ({datas, ...props}) => {
+	const id = props.match.params.ids;
 	return (
-		<div style={{backgroundImage: `url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1367x2048/e3f86fba993a9f7bf2ab03234b25a022/photo-1568313081041-dbd174f69e3b")`, height: "100vh"}} >
+		<div style={{backgroundImage: `url(${datas[id].bk_url})`, height: "100vh", backgroundRepeat: "no-repeat", backgroundSize: "cover"}} >
 			<Header0 fixed="top" transparent />
-			<DetailBoard />
+			<DetailBoard lists={datas[id].lists} />
 		</div>
 	)
 }
 
-export default Detail;
+const mapStateToProps = (state) => {
+	return {
+		datas: state.board.base
+	}
+}
+
+export default connect(mapStateToProps)(Detail);

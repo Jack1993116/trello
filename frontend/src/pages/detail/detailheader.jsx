@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './detail.css';
 
-const DetailHeader = ({title}) => {
+const DetailHeader = ({title, accessable}) => {
 	return (
 		<div className="board-header" >
 			<div className="board-header-btn mod-board-name" >
@@ -19,7 +20,7 @@ const DetailHeader = ({title}) => {
 				<span className="board-header-btn-divider" />
 				<a id="permission-level" className="board-header-btn perms-btn js-change-vis" href="#" title="Only board members can see and edit this board.">
 					<span className="board-header-btn-icon fa fa-lock" />
-					<span className="board-header-btn-text">Private</span>
+					<span className="board-header-btn-text">{accessable}</span>
 				</a>
 				<span className="board-header-btn-divider" />
 			</div>
@@ -42,4 +43,11 @@ const DetailHeader = ({title}) => {
 	)
 }
 
-export default DetailHeader;
+const mapStateToProps = (state) => {
+	return {
+		title: state.board.boardTitle,
+		accessable: state.board.boardType
+	}
+}
+
+export default connect(mapStateToProps)(DetailHeader);

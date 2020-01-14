@@ -4,13 +4,15 @@ import { MDBNavbar, MDBNavItem, MDBNavbarBrand, MDBNavbarNav, MDBNavLink } from 
 import LogoBtn from '../component/utils/logo.button';
 import HeaderBtn from '../component/utils/header.button';
 
-const Header0 = ({color="info-color-dark", fixed, transparent}) => {
+const Header0 = ({color="info-color-dark", fixed, transparent, ...props}) => {
 	return (
 		<MDBNavbar color={color} style={{height: "40px", padding: "4px"}} fixed={fixed} transparent={transparent} >
 			<LogoBtn />
 			<div className="hd-btn-group-s">
 				<HeaderBtn icon="fa-home" />
-				<HeaderBtn icon="fa-user" value="Boards" />
+				<HeaderBtn icon="fa-user" value="Boards" onClick={()=>{
+					window.location.href="/main";
+				}} />
 				<HeaderBtn icon="fa-user" value="Board" />
 			</div>
 			<div className="hd-btn-group-s">

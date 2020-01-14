@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Singup} />
         <PrivateRoute path="/main" component={Main} />
-        <PrivateRoute path="/detail" component={Detail} />
+        <PrivateRoute path="/:title/detail/:ids" component={Detail} />
       </Switch>
     </Router>
   );

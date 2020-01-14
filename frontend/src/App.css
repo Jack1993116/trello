@@ -14,6 +14,13 @@
   text-align: center;
 }
 
+.icons-ss {
+  height: 20px;
+  width: 20px;
+  line-height: 15px!important;
+  text-align: center;
+}
+
 .blind {
   display: none!important;
 }
@@ -404,6 +411,14 @@
   }
 }
 
+.contentboard-flexing {
+  display: block;
+}
+
+.mw-400 {
+  min-width: 400px;
+}
+
 @media (max-width: 715px) {
   .toggle-span {
     display: none;
@@ -411,5 +426,8 @@
   .contentboard-flexing {
     width: 0px;
     flex: 1 1 100%;
+  }
+  .mw-400 {
+    
   }
 }
