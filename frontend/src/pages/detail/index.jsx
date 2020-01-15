@@ -8,7 +8,7 @@ const Detail = ({datas, ...props}) => {
 	return (
 		<div style={{backgroundImage: `url(${datas[id].bk_url})`, height: "100vh", backgroundRepeat: "no-repeat", backgroundSize: "cover"}} >
 			<Header0 fixed="top" transparent />
-			<DetailBoard lists={datas[id].lists} />
+			<DetailBoard accessable={datas[id].boardType} lists={datas[id].lists} ids={id} title_1={datas[id].boardTitle} />
 		</div>
 	)
 }

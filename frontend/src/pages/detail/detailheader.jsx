@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import './detail.css';
 
-const DetailHeader = ({title, accessable}) => {
+const DetailHeader = ({ title_1, accessable_1, ...props }) => {
 	return (
 		<div className="board-header" >
 			<div className="board-header-btn mod-board-name" >
-				<span style={{fontSize: "14pt"}} >{title}</span>
+				<span style={{fontSize: "14pt"}} >{title_1}</span>
 			</div>
 			<a id="star" className="board-header-btn" href="#" title="Click to star or unstar this board. Starred boards show up at the top of your boards list." aria-label="Star or Unstar Board">
 				<span className="fa fa-star board-header-btn-icon" style={{left: "0"}} />
@@ -20,7 +20,7 @@ const DetailHeader = ({title, accessable}) => {
 				<span className="board-header-btn-divider" />
 				<a id="permission-level" className="board-header-btn perms-btn js-change-vis" href="#" title="Only board members can see and edit this board.">
 					<span className="board-header-btn-icon fa fa-lock" />
-					<span className="board-header-btn-text">{accessable}</span>
+					<span className="board-header-btn-text">{accessable_1}</span>
 				</a>
 				<span className="board-header-btn-divider" />
 			</div>
@@ -31,11 +31,11 @@ const DetailHeader = ({title, accessable}) => {
 			</div>
 			<div className="mod-right">
 				<span className="board-header-btn op">
-					<span className="fa fa-user board-header-btn-icon" />
+					<span className="fab fa-react board-header-btn-icon" />
 					<span className="board-header-btn-text">Butler</span>
 				</span>
 				<a className="board-header-btn mod-show-menu op" href="#">
-					<span className="fa fa-user board-header-btn-icon" />
+					<span className="fa fa-ellipsis-h board-header-btn-icon" />
 					<span className="board-header-btn-text">Show Menu</span>
 				</a>
 			</div>

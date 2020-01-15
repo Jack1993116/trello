@@ -1,13 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+
+import { createNewBoard } from '../../redux/reducers/board/board.action';
 
 import PrimaryBtn from '../utils/primary.button';
 import '../../pages/main/dashboard.part/boardlist.item/boardlist.item.css';
 import './createboard.css';
 
-const CreateBoard = ({show, onHide}) => {
+const CreateBoard = ({ids, createBoard, show, onHide}) => {
 	const [check, setCheck] = useState(true);
 	const [title, setTitle] = useState("Private");
 	const [board, setBoard] = useState("");
@@ -29,7 +33,7 @@ const CreateBoard = ({show, onHide}) => {
 							<Dropdown.Item onClick={()=>{setTitle("Private"); setCheck(true)}} >
 								<span className="fa fa-lock icon-private"></span>
 								<span>Private</span>
-								{check&&<span class="fa fa-check"></span>}
+								{check&&<span className="fa fa-check"></span>}
 								<span class="sub-name">
 									<span>Only board members can see and edit this board.</span>
 								</span>
@@ -54,7 +58,24 @@ const CreateBoard = ({show, onHide}) => {
 				</ul>
 			</Modal.Body>
 			<Modal.Footer>
-				<PrimaryBtn size="sm" style={{fontSize: "12pt"}} disabled={active} >Create Board</PrimaryBtn>
+				<Link to={`/${board}/detail/${ids}`}>
+					<PrimaryBtn size="sm" 
+						style={{fontSize: "12pt"}} 
+						disabled={active} 
+						onClick={
+							() => {
+								createBoard({
+									boardTitle:board,
+									boardType: title,
+									colloborators: [],
+									lists: {  },
+									bk_url:"https://trello-backgrounds.s3.amazonaws.com/SharedBackground/641x960/9c0a570b328ab427f18a15bfd2ffd838/photo-1568313081041-dbd174f69e3b.jpg"
+							})}
+						} 
+					>
+						Create Board
+					</PrimaryBtn>
+				</Link>
 				<a className="start-with-a-template" href="/template" >
 					<span className="fa fa-user" style={{padding: "5px"}} />
 					<span>Start with a template</span>
@@ -64,4 +85,16 @@ const CreateBoard = ({show, onHide}) => {
 	)
 }
 
-export default CreateBoard;
+const mapStateToProps = (state) => {
+	return {
+		ids: state.board.base.length
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		createBoard: (data) => dispatch(createNewBoard(data))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBoard);

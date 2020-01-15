@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { MDBNavbar, MDBBtn, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBCollapse } from 'mdbreact';
+import React, { useState, useEffect } from 'react';
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink } from 'mdbreact';
 import Logo from '../component/logo';
 
 const Header1 = () => {

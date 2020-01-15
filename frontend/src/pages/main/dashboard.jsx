@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { MDBContainer } from 'mdbreact';
 
+import { loadData } from '../../redux/reducers/board/board.action';
+
 import { SideNav, SideNavItem, SideNavLink, SideNavItemBtn } from '../utils/sidenav';
 import ContentBoard from './dashboard.part/content.boards';
 import BoardListItem from './dashboard.part/boardlist.item/boardlist.item';
@@ -9,14 +11,16 @@ import BoardListItemNew from './dashboard.part/boardlist.item/boardlist.item.new
 import CreateBoard from '../../component/createboard';
 import CreateTeam from '../../component/createteam/createteam';
 
-import { toRecently } from '../../redux/reducers/board/board.action';
+const Dashboard = ({ load, datas, stars, team, recentely, toRecently }) => {
+    const [create, setCreate] = useState(false);
+    const [createT, setCreateT] = useState(false);
 
-const Dashboard = ({datas, stars, team, recentely, toRecently}) => {
-	const [create, setCreate] = useState(false);
-	const [createT, setCreateT] = useState(false);
+    useEffect(() => {
+    	load();
+    });
 
-	return (
-		<div style={{backgroundColor: "#fafbfc"}} >
+    return (
+        <div style={{backgroundColor: "#fafbfc"}} >
 			<div >
 				<div style={{minHeight: `calc(100vh - 40px)`}} >
 					<div style={{display: "flex", alignItems: "flex-start", justifyContent: "center"}} >
@@ -28,8 +32,7 @@ const Dashboard = ({datas, stars, team, recentely, toRecently}) => {
 								<SideNavItemBtn onClick={()=>{setCreateT(true)}} />
 							</SideNavItem>
 						</SideNav>
-						<div className="mw-400" style={{flex: "1 1 100%"}} >
-						{console.log(recentely)}
+						<div className="mw-400 all-boards" >
 							{(recentely.length===0?false:true)&&
 								<ContentBoard title="Recently Visited" >
 									{recentely.map((item, id)=>{
@@ -37,7 +40,7 @@ const Dashboard = ({datas, stars, team, recentely, toRecently}) => {
 									})}
 								</ContentBoard>}
 							{(stars.length===0?false:true)&&
-								<ContentBoard title="Star" >
+								<ContentBoard title="Star" star={true} >
 									{stars.map((item, id)=>{
 										return <BoardListItem key={id} ids={id} title={datas[item].boardTitle} bk={datas[item].bk_url} />
 									})}
@@ -45,9 +48,7 @@ const Dashboard = ({datas, stars, team, recentely, toRecently}) => {
 							}
 							{<ContentBoard title="Personal Boards" >
 								{datas.map((item, id)=>{
-									return <BoardListItem key={id} ids={id} title={item.boardTitle} bk={item.bk_url} onClick={()=>{
-										toRecently(id);
-									}} />
+									return <BoardListItem key={id} ids={id} title={item.boardTitle} bk={item.bk_url} />
 								})}
 								<BoardListItemNew onClick={()=>{setCreate(true)}} />
 							</ContentBoard>}
@@ -61,21 +62,21 @@ const Dashboard = ({datas, stars, team, recentely, toRecently}) => {
 			<CreateTeam show={createT} onHide={()=>{setCreateT(false)}} />
 			<CreateBoard show={create} onHide={()=>{setCreate(false)}} />
 		</div>
-	)
+    )
 }
 
 const mapStateToProps = (state) => {
-	return {
-		datas: state.board.base,
-		stars: state.board.starred,
-		recentely: state.board.recently,
-		team: state.board.team
-	}
+    return {
+        datas: state.board.base,
+        stars: state.board.starred,
+        recentely: state.board.recently,
+        team: state.board.team
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		toRecently: (id) => dispatch(toRecently(id))
+		load: () => dispatch(loadData())
 	}
 }
 

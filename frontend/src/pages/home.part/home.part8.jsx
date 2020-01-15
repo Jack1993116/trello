@@ -44,13 +44,13 @@ const Part8 = ({pt, change}) => {
 						<li className="global-footer-list-item"> <a className="global-footer-list-item-link quiet" href="/about" >About</a> </li> 
 						<li className="global-footer-list-item"> <a className="global-footer-list-item-link quiet" href="http://help.trello.com/">Help</a> </li>  
 						<li className="global-footer-list-item"> <a className="global-footer-list-item-link quiet" href="/legal">Legal</a> </li>  
-						<li className="global-footer-list-item"> <a className="global-footer-list-item-link quiet" href="#" >Cookie Settings</a> </li>  
+						<li className="global-footer-list-item"> <a className="global-footer-list-item-link quiet" href="/cookie" >Cookie Settings</a> </li>  
 						<li className="global-footer-list-item"> <a className="global-footer-list-item-link quiet" href="/privacy" >Privacy</a> </li>  
 					</ul>
 				</MDBRow>
 				<MDBRow center>
 					  <MDBCol md="4">
-							<img src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/6cdbcb3dcf82bba860f1768d184161ee/atlassian-logo-gray-small.svg" style={{paddingBottom: "20px"}} width="150" />
+							<img alt="p8-img" src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/6cdbcb3dcf82bba860f1768d184161ee/atlassian-logo-gray-small.svg" style={{paddingBottom: "20px"}} width="150" />
 							<p align="center">&nbsp;© Copyright 2020. All rights reserved. </p>
 					  </MDBCol>
 				</MDBRow>

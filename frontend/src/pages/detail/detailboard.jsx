@@ -4,14 +4,16 @@ import { connect } from 'react-redux';
 import DetailHeader from './detailheader';
 import Note from '../../component/note/note';
 
-const DetailBoard = ({lists, ...props}) => {
+const DetailBoard = ({lists, ids, accessable, title_1, ...props}) => {
 	return (
-		<div style={{position:"relative", top: "32px"}} >
-			<DetailHeader />
+		<div style={{position:"relative", top: "40px"}} >
+			<DetailHeader accessable_1={accessable} title_1={title_1} />
 			<div className="board-canvas">
-				{Object.keys(lists).map((item, index)=>{
-					return <Note key={item} header={item} items={lists[item]} />
-				})}
+				{
+					Object.keys(lists).map((item, index)=>{
+						return <Note ids={ids} key={item} header={item} items={lists[item]} />
+					})
+				}
 			</div>
 		</div>
 	)

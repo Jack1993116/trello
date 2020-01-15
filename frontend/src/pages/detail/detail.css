@@ -1,6 +1,6 @@
 .board-header {
     height: 45px;
-    padding: 8px 4px 4px 8px;
+    padding: 8px 4px;
     position: relative;
     transition: padding .1s ease-in;
 }
