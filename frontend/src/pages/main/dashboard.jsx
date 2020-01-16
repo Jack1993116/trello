@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { MDBContainer } from 'mdbreact';
 
 import { loadData } from '../../redux/reducers/board/board.action';
+import { getDataById } from '../../api/utils/getDataById';
 
 import { SideNav, SideNavItem, SideNavLink, SideNavItemBtn } from '../utils/sidenav';
 import ContentBoard from './dashboard.part/content.boards';
@@ -14,10 +15,6 @@ import CreateTeam from '../../component/createteam/createteam';
 const Dashboard = ({ load, datas, stars, team, recentely, toRecently }) => {
     const [create, setCreate] = useState(false);
     const [createT, setCreateT] = useState(false);
-
-    useEffect(() => {
-    	load();
-    });
 
     return (
         <div style={{backgroundColor: "#fafbfc"}} >
@@ -36,19 +33,21 @@ const Dashboard = ({ load, datas, stars, team, recentely, toRecently }) => {
 							{(recentely.length===0?false:true)&&
 								<ContentBoard title="Recently Visited" >
 									{recentely.map((item, id)=>{
-										return <BoardListItem key={id} ids={id} title={datas[item].boardTitle} bk={datas[item].bk_url} />
+										const data = getDataById(datas, item);
+										return <BoardListItem key={id} ids={item} title={data.boardTitle} bk={data.bk_url} />
 									})}
 								</ContentBoard>}
 							{(stars.length===0?false:true)&&
 								<ContentBoard title="Star" star={true} >
 									{stars.map((item, id)=>{
-										return <BoardListItem key={id} ids={id} title={datas[item].boardTitle} bk={datas[item].bk_url} />
+										const data = getDataById(datas, item);
+										return <BoardListItem key={id} ids={item} title={data.boardTitle} bk={data.bk_url} star={true} />
 									})}
 								</ContentBoard>
 							}
 							{<ContentBoard title="Personal Boards" >
 								{datas.map((item, id)=>{
-									return <BoardListItem key={id} ids={id} title={item.boardTitle} bk={item.bk_url} />
+									return <BoardListItem key={id} ids={item.id} title={item.boardTitle} bk={item.bk_url} />
 								})}
 								<BoardListItemNew onClick={()=>{setCreate(true)}} />
 							</ContentBoard>}

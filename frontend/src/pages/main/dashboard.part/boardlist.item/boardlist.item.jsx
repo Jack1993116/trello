@@ -15,11 +15,10 @@ const BoardListItem = ({ title, bk, ids, toRecently, toStarred, star, ...props }
 					style={{backgroundImage: `url(${bk})`}}
 				>
 					<span className="board-tile-fade" />
-					<div className="board-tile-detail" 
-						onClick={()=>{
-									if(show) {
-										toRecently(ids);
-									}
+					<div 
+						className="board-tile-detail" 
+						onClick={() => {
+								// if(!show) toRecently(ids);
 							}
 						}
 					>
@@ -28,7 +27,7 @@ const BoardListItem = ({ title, bk, ids, toRecently, toStarred, star, ...props }
 							<span className="board-tile-options">
 								<span 
 									title="Click to star this board. It will show up at the top of your boards list." 
-									className={`far fa-star board-tile-options-star-icon ${show?"w-18":""}`} 
+									className={`far fa-star board-tile-options-star-icon ${star?"w-18":show?"w-18":""}` } 
 									style={{zIndex: 4}}
 									onClick={(e)=>{
 										e.preventDefault();
@@ -43,7 +42,6 @@ const BoardListItem = ({ title, bk, ids, toRecently, toStarred, star, ...props }
 		</Link>
     )
 }
-// href={`/${title}/detail/${ids}`}
 
 const mapDispatchToProps = (dispatch) => {
     return {

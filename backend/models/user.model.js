@@ -1,22 +1,22 @@
 var db = require('../api/db');
-var userSchema = db.Schema({
+var userSchema = new db.Schema({
+	id: db.Schema.Types.ObjectId,
 	name: String,
 	password: String,
 	email: String
 });
 
-var users = db.model("users", userSchema);
-
+var users = new db.model("users", userSchema);
 const insertUser = (user) => {
-	users.insert(user, (err, result) => {
+	users.insertMany(user, (err, result) => {
 		if(err) {
 			console.log(err);
 		} else {
 			console.log(result);
+			return result;
 		}
 	})
 }
-
 const findUser = (user) => {
 	const res = users.find(user).exec();
 	return res;
