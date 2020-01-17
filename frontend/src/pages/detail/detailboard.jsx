@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import DetailHeader from './detailheader';
 import Note from '../../component/note/note';
+import AddNote from '../../component/note/note.add';
 
 const DetailBoard = ({lists, ids, accessable, title_1, ...props}) => {
 	return (
@@ -14,6 +15,7 @@ const DetailBoard = ({lists, ids, accessable, title_1, ...props}) => {
 						return <Note ids={ids} key={item} header={item} items={lists[item]} />
 					})
 				}
+				<AddNote />
 			</div>
 		</div>
 	)

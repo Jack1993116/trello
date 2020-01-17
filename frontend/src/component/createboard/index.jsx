@@ -87,7 +87,7 @@ const CreateBoard = ({ids, createBoard, show, onHide}) => {
 
 const mapStateToProps = (state) => {
 	return {
-		ids: state.board.base.length
+		ids: state.board.base[state.board.base.length - 1].id
 	}
 }
 

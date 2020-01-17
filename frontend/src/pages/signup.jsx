@@ -15,10 +15,13 @@ import Background from '../component/utils/background';
 
 import {emailSignInStart} from '../redux/reducers/auth/auth.action'
 
-const Singup = ({signup, isLogin, ...props}) => {
+const Singup = ({signup, isSignup, ...props}) => {
 	const [lost, setLost] = useState(false);
+	const [email, setEmail] = useState("");
+	const [name, setName] = useState("");
+	const [password, setPassword] = useState("");
 	useEffect(()=>{
-		isLogin?props.history.push('/main'):props.history.push('/login');
+		if(isSignup) props.history.push(`/login`);
 	})
 	return (
 		<Log>
@@ -26,16 +29,29 @@ const Singup = ({signup, isLogin, ...props}) => {
 				<MDBCardBody style={{padding: "25px 40px"}}>
 					<h5 align="center" style={{color: "#5E6C84"}}>Sign up to Trello</h5>
 					<form>
-						<CustomInput type="text" hint="Enter email" onBlur={(e)=>{e.target.value.length?setLost(true):setLost(false)}} />
+						<CustomInput 
+							type="text" 
+							hint="Enter email" 
+							onBlur={(e)=>{
+								e.target.value.length?setLost(true):setLost(false)
+							}} 
+							onChange={(e) => {
+									setEmail(e.target.value);
+						}} />
 						{lost&&<div>
-							<CustomInput type="text" hint="Enter full name" />
-							<CustomPassword />
+							<CustomInput type="text" hint="Enter full name" onChange={(e) => {
+								setName(e.target.value);
+							}} />
+							<CustomPassword onChange={(e) => {
+								setPassword(e.target.value);
+							}} />
 							</div>
 						}
 						<p className="quiet tos"> By signing up, you confirm that you've read and accepted our <a href="/legal" target="_blank" >Terms of Service</a> and <a href="/privacy" target="_blank" >Privacy Policy</a>. </p>
 						{lost
 							?<LoggerBtn title="SignUp" onClick={()=>{
-								signup("ss")
+								signup({email, password});
+
 							}} />
 							:<LoggerBtn title="Continue" onClick={()=>{setLost(true)}} />
 						}
@@ -53,7 +69,7 @@ const Singup = ({signup, isLogin, ...props}) => {
 
 const mapStateToProps = (state) => {
 	return ({
-		isLogin: state.auth.isLogin
+		isSignup: state.auth.isSignup
 	})
 }
 

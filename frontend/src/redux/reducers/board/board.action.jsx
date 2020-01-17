@@ -62,6 +62,13 @@ export const addListItem = (data) => {
 	}
 }
 
+export const addList = (data) => {
+	return {
+		type: BoardActionTypes.ADD_LIST,
+		payload: data
+	}
+}
+
 export const createNewBoard = (data) => {
 	return {
 		type: BoardActionTypes.CREATE_NEW_BOARD,

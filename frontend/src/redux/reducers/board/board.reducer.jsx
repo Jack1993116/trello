@@ -1,4 +1,5 @@
 import BoardActionTypes from './board.action.type';
+import { getDataById } from '../../../api/utils/getDataById';
 
 const INIT_STATE = {
 	base:[{
@@ -54,11 +55,10 @@ const boardReducer = (state=INIT_STATE, action) => {
 			
 			return { ...state, starred: r };
 		case BoardActionTypes.ADD_LIST_ITEM:
-			r = state.base[action.payload.id].lists[action.payload.title].push(action.payload.item);
+			r = getDataById(state.base, action.payload.id).lists[action.payload.title].push(action.payload.item);
 			return { ...state };
 		case BoardActionTypes.CREATE_NEW_BOARD:
 			r = state.base.push({...action.payload, id: "new"});
-			console.log(action.payload);
 			return { ...state };
 		default: return state;
 	}

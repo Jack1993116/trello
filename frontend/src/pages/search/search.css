@@ -1,0 +1,24 @@
+.search-content {
+	clear: both;
+    margin: 0 auto;
+    max-width: 680px;
+    padding-top: 50px;
+    position: relative;
+}
+
+.search-tips {
+	padding: 0 8px 4px;
+}
+
+.search-tip-helper {
+	background: url(https://a.trellocdn.com/prgb/dist/images/empty-states/comb.65864547b3e6ae50d7ff.svg) no-repeat 0;
+    background-size: 40px 100%;
+    text-align: left;
+    padding-left: 48px;
+}
+
+.search-tips-btn {
+	float: right;
+	background-color: rgba(9,30,66,.04);
+	padding: 8px 14px;
+}

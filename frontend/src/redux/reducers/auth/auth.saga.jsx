@@ -6,19 +6,17 @@ import { loginFailure, loginSuccess, signUpSuccess, signUpFailure } from './auth
 
 function* fetchAuthTokenSignupAsync(payload) {
 	try{
-		console.log(payload);
-		const user_token = yield axios.post("http://localhost:3000/signup", payload).then(res=>{/*res.redirect('/main');*/ return res.data});
-		console.log(user_token);
+		console.log(payload.payload);
+		const user_token = yield axios.post("http://localhost:3000/signup", payload.payload).then(res=>{/*res.redirect('/main');*/ return res.data});
 		yield put(signUpSuccess(user_token));
 	} catch(err) {
 		yield put(signUpFailure(err));
 	}
 }
 
-function* fetchAuthTokenLoginAsync({payload}) {
+function* fetchAuthTokenLoginAsync(payload) {
 	try{
-		const user_token = yield axios.post("http://localhost:3000/login", payload).then(res=>res.data);
-		console.log(user_token);
+		const user_token = yield axios.post("http://localhost:3000/login", payload.payload).then(res=>{return res.data});
 		yield put(loginSuccess(user_token));
 	} catch(err) {
 		yield put(loginFailure(err));

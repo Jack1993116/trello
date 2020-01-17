@@ -1,27 +1,26 @@
 var db = require('../api/db');
+
 const baseSchema = new db.Schema({
-	id: Schema.Types.ObjectId,
 	boardTitle: String,
 	boardType: String,
 	colloborators: Array,
 	lists: Array,
-	bk_url: String
+	bk_url: String,
+	starred: Array,
+	recently: Array,
+	user: { type:db.Schema.Types.ObjectId, ref: "users" }
 });
 
-const starSchema = new db.Schema({
-	starred: Array
-})
-
-const recentlySchema = new db.Schema({
-	recently: Array
-})
-
 const Base = new db.model('base', baseSchema);
-const Star = new db.model('star', starSchema);
-const Recently = new db.model('recently', recentlySchema);
 
-const saveBase = (data) => {
-	Base.create(data, (err, result) => {
+const insertNewData = (data, userId) => {
+	const newD = new Base(data);
+	newD.save((err) => {
 		if(err) return handleError(err);
+		newD.user = userId;
 	})
 }
+
+
+
+module.exports = { Base };

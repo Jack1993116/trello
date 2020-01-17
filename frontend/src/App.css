@@ -163,11 +163,10 @@
   box-sizing: border-box;
   border-radius: 3px;
   display: flex;
-  margin: 10px 0px;
+  margin: 10px 5px;
   padding: 5px;
   -webkit-transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
   transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
-  width: 100%;
 }
 
 .form-txtarea {

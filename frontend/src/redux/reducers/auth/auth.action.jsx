@@ -31,8 +31,6 @@ export const emailSignInStart = (emailAndPassword) => {
 }
 
 export const signUpSuccess = (user_token) => {
-	localStorage.setItem('jwt_token', user_token.token);
-	setAuthToken(localStorage.getItem('jwt_token'));
 	return {
 		type: UserActionTypes.SIGN_UP_SUCCESS,
 		payload: user_token

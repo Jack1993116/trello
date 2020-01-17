@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import CustomInput from './input.custom';
 
-const CustomPassword = () => {
+const CustomPassword = ({onChange}) => {
 	const [type, setType] = useState(false);
 	const [password, setPassword] = useState("");
 	const isLong = (value) => {
@@ -12,9 +12,7 @@ const CustomPassword = () => {
 	}
 	return (
 		<div>
-			<CustomInput type={!type?"password":"text"} hint="Create Password" onChange={(e)=>{
-				isLong(e.target.value)
-			}}>
+			<CustomInput type={!type?"password":"text"} hint="Create Password" onChange={onChange}>
 				<span className="far fa-eye" style={{fontSize: "14pt"}} onClick={()=>{
 					setType(!type);
 				}}/>

@@ -17,6 +17,9 @@ import '../App.css';
 const Login = ({login, isLogin, ...props}) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	useEffect(()=>{
+		if(isLogin) props.history.push(`/${email}/main`);
+	})
 	return (
 		<Log>
 			<MDBCard>
@@ -55,4 +58,4 @@ const mapDispachToProps = (dispatch) => {
 		})
 }
 
-export default connect(null, mapDispachToProps)(Login);
+export default connect(mapStateToProps, mapDispachToProps)(Login);

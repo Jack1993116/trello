@@ -10,21 +10,20 @@ opt.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opt.secretOrKey = "abc";
 
 passport.use('register', new LocalStrategy({
-		usernameField: 'payload',
-		passwordField: 'type',
+		usernameField: 'email',
+		passwordField: 'password',
 		session: false
 	}, 
 	async (username, password, done) => {
-		console.log(username);
-		let user = await findUser();
+		let user = await findUser(username);
 		if(user === "error"){
 			done(user, false);
 		}
-		if(user.length !== 0){
+		if(user != null){
 			done(null, false, "user");
 		}
 		// insertUser(jwt_payload)
-		done(null, true);
+		done(null, {email: username, password: password});
 	}))
 
 passport.use('login', 
@@ -34,12 +33,12 @@ passport.use('login',
 		session: false
 	}, async (username, password, done) => {
 		try{
-			let user = await findUser();
+			let user = await findUser(username);
 			console.log("DB:"+user);
 			if(user === "error"){
 				done(user, false);
 			}
-			if(user.length === 0){
+			if(user === null){
 				done(null, false, "user");
 			}
 			done(null, user);

@@ -5,14 +5,14 @@ import LogoBtn from '../component/utils/logo.button';
 import HeaderBtn from '../component/utils/header.button';
 import HeaderSearcher from '../component/utils/header.seacher';
 
-const Header0 = ({color="info-color-dark", fixed, transparent, ...props}) => {
+const Header0 = ({color="info-color-dark", fixed, transparent, searchoff, ...props}) => {
 	return (
 		<MDBNavbar color={color} style={{height: "40px", padding: "4px"}} fixed={fixed} transparent={transparent} >
 			<LogoBtn />
 			<div className="hd-btn-group-s">
 				<HeaderBtn icon="fa-home" url="/" />
 				<HeaderBtn icon="fa-user" value="Boards" url="/main" />
-				<HeaderSearcher />
+				{!searchoff&&<HeaderSearcher />}
 			</div>
 			<div className="hd-btn-group-s">
 				<HeaderBtn icon="fa-plus" url="/main" />
