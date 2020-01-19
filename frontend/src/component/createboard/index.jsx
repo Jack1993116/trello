@@ -8,6 +8,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { createNewBoard } from '../../redux/reducers/board/board.action';
 
 import PrimaryBtn from '../utils/primary.button';
+import BkList from './bk.list';
 import '../../pages/main/dashboard.part/boardlist.item/boardlist.item.css';
 import './createboard.css';
 
@@ -16,6 +17,7 @@ const CreateBoard = ({ids, createBoard, show, onHide}) => {
 	const [title, setTitle] = useState("Private");
 	const [board, setBoard] = useState("");
 	const [active, setActive] = useState(true);
+	const [select, setSelect] = useState(1);
 	const isActive = (board) => {
 		setBoard(board);
 		board.length?setActive(false):setActive(true);
@@ -50,11 +52,15 @@ const CreateBoard = ({ids, createBoard, show, onHide}) => {
 					</div>
 				</div>
 				<ul className="background-grid">
-					<li className="background-grid-item">
-						<button className="background-grid-trigger is-photo selected" type="button" style={{backgroundImage: `url(https://images.unsplash.com/photo-1578615437406-511cafe4a5c7?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjcwNjZ9&quot;)`}}>
-							<span className="fa fa-check" style={{color: "white"}} />
-						</button>
-					</li>
+					<BkList ids={1} select={select} setSelect={setSelect} />
+					<BkList ids={2} select={select} setSelect={setSelect} />
+					<BkList ids={4} select={select} setSelect={setSelect} />
+					<BkList ids={8} select={select} setSelect={setSelect} />
+					<BkList ids={16} select={select} setSelect={setSelect} />
+					<BkList ids={32} select={select} setSelect={setSelect} />
+					<BkList ids={64} select={select} setSelect={setSelect} />
+					<BkList ids={128} select={select} setSelect={setSelect} />
+					<BkList ids={256} select={select} setSelect={setSelect} />
 				</ul>
 			</Modal.Body>
 			<Modal.Footer>

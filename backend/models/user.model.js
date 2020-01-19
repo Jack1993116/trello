@@ -2,7 +2,10 @@ var db = require('../api/db');
 var userSchema = new db.Schema({
     name: String,
     password: String,
-    email: String
+    email: String,
+    starred: Array,
+    recently: Array,
+    base: [{ type: db.Schema.Types.ObjectId, ref: 'base' }]
 });
 
 var users = new db.model("users", userSchema);

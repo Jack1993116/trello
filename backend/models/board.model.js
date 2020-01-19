@@ -5,20 +5,17 @@ const baseSchema = new db.Schema({
 	boardType: String,
 	colloborators: Array,
 	lists: Array,
-	bk_url: String,
-	starred: Array,
-	recently: Array,
-	user: { type:db.Schema.Types.ObjectId, ref: "users" }
+	bk_url: String
 });
 
 const Base = new db.model('base', baseSchema);
 
-const insertNewData = (data, userId) => {
+const insertNewData = (data) => {
 	const newD = new Base(data);
 	newD.save((err) => {
 		if(err) return handleError(err);
-		newD.user = userId;
 	})
+	return newD._id;
 }
 
 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { MDBContainer } from 'mdbreact';
 
 import { loadData } from '../../redux/reducers/board/board.action';
+import { setCreate, setCreateT } from '../../redux/reducers/util/util.action';
 import { getDataById } from '../../api/utils/getDataById';
 
 import { SideNav, SideNavItem, SideNavLink, SideNavItemBtn } from '../utils/sidenav';
@@ -12,9 +13,7 @@ import BoardListItemNew from './dashboard.part/boardlist.item/boardlist.item.new
 import CreateBoard from '../../component/createboard';
 import CreateTeam from '../../component/createteam/createteam';
 
-const Dashboard = ({ load, datas, stars, team, recentely, toRecently }) => {
-    const [create, setCreate] = useState(false);
-    const [createT, setCreateT] = useState(false);
+const Dashboard = ({ create, createT, setCreate, setCreateT, load, datas, stars, team, recentely, toRecently }) => {
 
     return (
         <div style={{backgroundColor: "#fafbfc"}} >
@@ -69,13 +68,17 @@ const mapStateToProps = (state) => {
         datas: state.board.base,
         stars: state.board.starred,
         recentely: state.board.recently,
-        team: state.board.team
+        team: state.board.team,
+        create: state.util.create,
+        createT: state.util.createT
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		load: () => dispatch(loadData())
+		load: () => dispatch(loadData()),
+		setCreate: (data) => dispatch(setCreate(data)),
+		setCreateT: (data) => dispatch(setCreateT(data))
 	}
 }
 

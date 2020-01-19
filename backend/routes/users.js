@@ -5,7 +5,6 @@ var jwt = require('jsonwebtoken');
 
 var {insertUser}  = require('../models/user.model');
 
-
 /* GET users listing. */
 router.post('/', passport.authenticate('login'), 
 	(req, res, next) => {

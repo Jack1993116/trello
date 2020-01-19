@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink } from 'mdbreact';
 import Logo from '../component/logo';
 
@@ -37,4 +38,4 @@ const Header1 = () => {
 	);
 }
 
-export default Header1;
+export default withRouter(Header1);
