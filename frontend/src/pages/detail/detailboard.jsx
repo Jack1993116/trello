@@ -9,10 +9,10 @@ const DetailBoard = ({lists, ids, accessable, title_1, ...props}) => {
 	return (
 		<div style={{position:"relative", top: "40px"}} >
 			<DetailHeader accessable_1={accessable} title_1={title_1} />
-			<div className="board-canvas">
+			<div className="board-canvas" >
 				{
 					Object.keys(lists).map((item, index)=>{
-						return <Note ids={ids} key={item} header={item} items={lists[item]} />
+						return <Note ids={ids} key={item} header={item} items={lists[item]} order={index} />
 					})
 				}
 				<AddNote />

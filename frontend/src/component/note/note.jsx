@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import './note.css';
 import { addListItem } from '../../redux/reducers/board/board.action';
@@ -7,10 +8,10 @@ import { addListItem } from '../../redux/reducers/board/board.action';
 import NoteList from './note.list';
 import PrimaryBtn from '../utils/primary.button';
 
-const Note = ({ ids, header, items, addItem, ...props }) => {
+const Note = ({ ids, header, items, addItem, order, ...props }) => {
     const [f1, setF1] = useState(false);
     const [item, setItem] = useState("");
-
+    console.log(ids);
     return (
         <div className="list-wrapper">
 			<div className="list">
@@ -21,13 +22,26 @@ const Note = ({ ids, header, items, addItem, ...props }) => {
 					</div>
 				</div>
 				<div className={`list-body`} >
-					<div className="list-cards"> {
-							items.map((item, id)=>{
-								return <NoteList key={id} content={items[id]} />
-					})}
-					</div>
+					<DragDropContext onDragEnd={() => {alert("end")}}>
+						<Droppable droppableId={order}>
+						{(provided, snapshot) => (
+							<div className="list-cards" {...provided.droppableProps} ref={provided.innerRef}> {
+									items.map((item, id)=>{
+										return (
+											<Draggable key={id} draggableId={item} >
+												{(provided, snapshot) => (
+														<NoteList content={items[id]} />
+													)
+												}
+											</Draggable>
+										)
+							})}
+							</div>
+						)}
+						</Droppable>
+					</DragDropContext>
 					<div className={` ${!f1?"blind":""}`}>
-						<textarea style={{width: '255px'}} onChange={(e)=>{
+						<textarea style={{width: '255px'}} onChange={(e) => {
 							setItem(e.target.value);
 						}} />
 						<div>

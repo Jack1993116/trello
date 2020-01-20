@@ -1,19 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Invite from '../../component/invite';
 import './detail.css';
 
 const DetailHeader = ({ title_1, accessable_1, ...props }) => {
+	const [show, setShow] = React.useState(false);
+	const [rightP, setRightP] = React.useState(0);
 	return (
 		<div className="board-header" >
 			<div className="board-header-btn mod-board-name" >
 				<span style={{fontSize: "14pt"}} >{title_1}</span>
 			</div>
 			<a id="star" className="board-header-btn" href="#" title="Click to star or unstar this board. Starred boards show up at the top of your boards list." aria-label="Star or Unstar Board">
-				<span className="fa fa-star board-header-btn-icon" style={{left: "0"}} />
+				<span className="far fa-star board-header-btn-icon" style={{left: "0"}} />
 			</a>
 			<div className="board-header-btn-org-wrapper" >
-				<a className="board-header-btn" style={{paddingLeft: 0}} >
+				<a href="#" className="board-header-btn" style={{paddingLeft: 0}} >
 					<span className="board-header-btn-divider" />
 					<span className="board-header-btn-text" style={{paddingRight: 0}} >Personal</span>
 				</a>
@@ -24,10 +27,11 @@ const DetailHeader = ({ title_1, accessable_1, ...props }) => {
 				</a>
 				<span className="board-header-btn-divider" />
 			</div>
-			<div className="board-header-btns" >
-				<a id="invite" className="board-header-btn board-header-btn-invite board-header-btn-without-icon padding-left-24" href="#" title="Invite To Board">
+			<div id="invite_div" className="board-header-btns" >
+				<a id="invite" className="board-header-btn board-header-btn-invite board-header-btn-without-icon padding-left-24" href="#" title="Invite To Board" onClick={() => {setShow(!show); }}>
 					<span className="board-header-btn-text">Invite</span>
 				</a>
+				{show&&<Invite right={document.getElementById('invite').getBoundingClientRect().right} setShow={setShow} />}
 			</div>
 			<div className="mod-right">
 				<span className="board-header-btn op">
