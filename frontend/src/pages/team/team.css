@@ -1,0 +1,70 @@
+.team-page-header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 650px;
+	padding: 32px;
+	position: relative;
+}
+
+.profile-image {
+    background-color: #dfe1e6;
+    border-radius: 25em;
+    cursor: default;
+    display: block;
+    flex: 0 0 85px;
+    height: 85px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 85px;
+    z-index: 0;
+}
+
+.profile-image-icon {
+    display: block;
+    font-size: 55px;
+    height: 55px;
+    left: 8px;
+    line-height: 55px;
+    position: absolute;
+    top: 15px;
+    width: 55px;
+    z-index: 2;
+}
+
+.profile-image-change {
+	height: 32px;
+	background: rgba(0,0,0,.5);
+    bottom: 0;
+    color: #fff;
+    display: none;
+    line-height: 32px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 3;
+}
+
+.profile-image:hover {
+	cursor: pointer;
+}
+
+.profile-image:hover .profile-image-change {
+	display: block;
+}
+
+.nav-tabs .nav-link {
+    background-color: lightgray;
+    border: 1px solid white;
+    border-bottom: none!important;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    margin: 0 5px;
+}

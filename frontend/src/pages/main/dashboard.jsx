@@ -7,11 +7,12 @@ import { setCreate, setCreateT } from '../../redux/reducers/util/util.action';
 import { getDataById } from '../../api/utils/getDataById';
 
 import { SideNav, SideNavItem, SideNavLink, SideNavItemBtn } from '../utils/sidenav';
-import ContentBoard from './dashboard.part/content.boards';
 import BoardListItem from './dashboard.part/boardlist.item/boardlist.item';
 import BoardListItemNew from './dashboard.part/boardlist.item/boardlist.item.new';
+import ContentBoard from './dashboard.part/content.boards';
 import CreateBoard from '../../component/createboard';
 import CreateTeam from '../../component/createteam/createteam';
+import TeamList from './dashboard.part/team.item';
 
 const Dashboard = ({ create, createT, setCreate, setCreateT, load, datas, stars, team, recentely, toRecently }) => {
 
@@ -30,14 +31,14 @@ const Dashboard = ({ create, createT, setCreate, setCreateT, load, datas, stars,
 						</SideNav>
 						<div className="mw-400 all-boards" >
 							{(recentely.length===0?false:true)&&
-								<ContentBoard title="Recently Visited" >
+								<ContentBoard title="Recently Visited" icon="clock" >
 									{recentely.map((item, id)=>{
 										const data = getDataById(datas, item);
 										return <BoardListItem key={id} ids={item} title={data.boardTitle} bk={data.bk_url} />
 									})}
 								</ContentBoard>}
 							{(stars.length===0?false:true)&&
-								<ContentBoard title="Star" star={true} >
+								<ContentBoard title="Star" star={true} icon="star" >
 									{stars.map((item, id)=>{
 										const data = getDataById(datas, item);
 										return <BoardListItem key={id} ids={item} title={data.boardTitle} bk={data.bk_url} star={true} />
@@ -50,9 +51,7 @@ const Dashboard = ({ create, createT, setCreate, setCreateT, load, datas, stars,
 								})}
 								<BoardListItemNew onClick={()=>{setCreate(true)}} />
 							</ContentBoard>}
-							{(team.length===0?false:true)&&
-								<ContentBoard title="Team" />
-							}
+							<TeamList />
 						</div>
 					</div>
 				</div>

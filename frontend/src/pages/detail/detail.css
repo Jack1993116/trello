@@ -99,5 +99,9 @@
 }
 .board-canvas {
     position: relative;
-    /*flex-grow: 1;*/
+    flex-grow: 1;
+}
+
+.detail_cnt {
+    height: calc(100% - 40px);
 }

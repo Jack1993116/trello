@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import Header0 from '../header0';
 import DetailBoard from './detailboard';
@@ -10,7 +10,8 @@ import { setCreate, setCreateT } from '../../redux/reducers/util/util.action';
 
 const Detail = ({datas, create, createT, setCreateT, setCreate, ...props}) => {
 	const id = props.match.params.ids;
-	const data = getDataById(datas, id);
+
+	const data = useMemo(() => getDataById(datas, id));
 	
 	return (
 		<div style={{backgroundImage: `url(${data.bk_url})`, height: "100vh", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "50%"}} >

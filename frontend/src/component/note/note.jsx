@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { connect } from 'react-redux';
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DndProvider, useDrop } from 'react-dnd';
 
 import './note.css';
 import { addListItem } from '../../redux/reducers/board/board.action';
@@ -11,9 +11,23 @@ import PrimaryBtn from '../utils/primary.button';
 const Note = ({ ids, header, items, addItem, order, ...props }) => {
     const [f1, setF1] = useState(false);
     const [item, setItem] = useState("");
-    console.log(ids);
+    const moveCard = useCallback((dragIndex, hoverIndex) => {
+    	const dragCard = items[dragIndex];
+    	items.splice(dragIndex, 1);
+    	items.splice(hoverIndex, 0, dragCard);
+    	console.log(items);
+    });
+    const [{ isOver }, drop] = useDrop({
+    	accept: 'a',
+    	drop: (item, monitor) => {
+    		items.push(item.list);
+    	},
+    	collect: monitor => ({
+    		isOver: monitor.isOver(),
+    	}),
+    });
     return (
-        <div className="list-wrapper">
+        <div className="list-wrapper" ref={drop}>
 			<div className="list">
 				<div className="list-header">
 					<textarea className="list-header-name mod-list-name js-list-name-input" aria-label="To Do" spellCheck="false" dir="auto" maxLength="512" style={{overflow: 'hidden', overflowWrap: 'break-word', height: '28px', width: '210px'}} defaultValue={header} />
@@ -22,24 +36,13 @@ const Note = ({ ids, header, items, addItem, order, ...props }) => {
 					</div>
 				</div>
 				<div className={`list-body`} >
-					<DragDropContext onDragEnd={() => {alert("end")}}>
-						<Droppable droppableId={order}>
-						{(provided, snapshot) => (
-							<div className="list-cards" {...provided.droppableProps} ref={provided.innerRef}> {
-									items.map((item, id)=>{
-										return (
-											<Draggable key={id} draggableId={item} >
-												{(provided, snapshot) => (
-														<NoteList content={items[id]} />
-													)
-												}
-											</Draggable>
-										)
-							})}
-							</div>
-						)}
-						</Droppable>
-					</DragDropContext>
+						<div className="list-cards" > {
+								items.map((item, id)=>{
+									return (
+										<NoteList callback1={moveCard} groupId={ids} header={header} key={item + id} ids={id} content={items[id]} />
+									)
+						})}
+						</div>
 					<div className={` ${!f1?"blind":""}`}>
 						<textarea style={{width: '255px'}} onChange={(e) => {
 							setItem(e.target.value);
@@ -47,7 +50,8 @@ const Note = ({ ids, header, items, addItem, order, ...props }) => {
 						<div>
 							<div style={{float: 'left'}} >
 								<PrimaryBtn style={{fontSize: "12pt"}} size="sm" value="Add Card" onClick={()=>{
-									addItem({item: item, id: ids, title: header});
+									if(item.length != 0)
+										addItem({item: item, id: ids, title: header});
 								}} >
 									Add Card
 								</PrimaryBtn>

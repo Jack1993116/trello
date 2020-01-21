@@ -14,7 +14,7 @@ const AddNote = () => {
 		'hd-btn': !show
 	})
 	return (
-		<div className={classes} >
+		<div className={classes} style={{height: "fit-content"}} >
 			{!show&&<div onClick={() => {setShow(!show)}}>
 				<span className="fa fa-plus icons" />
 				<span>Add another list</span>

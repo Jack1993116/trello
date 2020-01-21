@@ -70,6 +70,7 @@ const CreateBoard = ({ids, createBoard, show, onHide}) => {
 						disabled={active} 
 						onClick={
 							() => {
+								onHide(false);
 								createBoard({
 									boardTitle:board,
 									boardType: title,

@@ -18,7 +18,7 @@ const BoardListItem = ({ title, bk, ids, toRecently, toStarred, star, ...props }
 					<div 
 						className="board-tile-detail" 
 						onClick={() => {
-								// if(!show) toRecently(ids);
+								if(!show) toRecently(ids);
 							}
 						}
 					>

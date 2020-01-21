@@ -183,3 +183,7 @@ textarea.list-card-composer-textarea, textarea.list-card-composer-textarea:focus
 .visible {
     visibility: visible;
 }
+
+.dragging {
+    transform: rotate(30deg);
+}

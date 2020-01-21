@@ -13,6 +13,7 @@ import Singup from './pages/signup';
 import Main from './pages/main';
 import Detail from './pages/detail';
 import SearchPage from './pages/search';
+import Team from './pages/team';
 
 import PrivateRoute from './api/utils/private.route';
 
@@ -29,6 +30,7 @@ function App() {
         <PrivateRoute exact path="/search/:q" component={SearchPage} />
         <PrivateRoute exact path="/:user/main" component={Main} />
         <PrivateRoute path="/:title/detail/:ids" component={Detail} />
+        <PrivateRoute path="/team" component={Team} />
       </Switch>
     </Router>
   );

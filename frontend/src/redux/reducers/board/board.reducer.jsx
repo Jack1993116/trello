@@ -23,8 +23,7 @@ const INIT_STATE = {
 			colloborators: [],
 			lists: { Todo:['z', 'x', 'c'], Doing:['8', '4', '1'], Done:['q','w','e'] },
 			bk_url:"https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/dd9165bde3d811a8e28f4aba2e5acbf1/photo-1578924152556-1bb298935ad6.jpg"
-		}
-	],
+		}],
 	starred:[],
 	recently:[],
 	team:[]
@@ -37,8 +36,9 @@ const boardReducer = (state=INIT_STATE, action) => {
 			r = [...state.recently];
 
 			if(!r.includes(action.payload)) {
-				r.push(action.payload);
+				r.unshift(action.payload);
 			}
+			
 			return { ...state, recently: r };
 		case BoardActionTypes.BOARD_DATA_TO_STAR:
 			r = [...state.starred];
