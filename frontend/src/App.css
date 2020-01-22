@@ -457,6 +457,7 @@
     text-align: center;
     display: grid;
     grid-template-columns: 12px 1fr 12px;
+    z-index: 9;
 }
 
 .addmenu_header p{

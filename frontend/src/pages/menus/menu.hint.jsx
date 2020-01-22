@@ -33,7 +33,7 @@ const MenuHint = ({ setUtil }) => {
     }
 
     return (
-        <div style={{position: "absolute", right: "25px", zIndex: 5}} >
+        <div style={{position: "absolute", top: "40px", right: "25px", padding: "10px", backgroundColor: "white", zIndex: 9}} >
 			<div className="addmenu_header" >
 				<p>Information</p>
 				<button onClick={() => {setUtil(0)}}><span className="fa fa-times" /></button>

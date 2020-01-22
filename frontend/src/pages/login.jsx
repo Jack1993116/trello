@@ -19,8 +19,10 @@ const Login = ({login, isLogin, ...props}) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	useEffect(()=>{
-		const u_email = jwt_decode(localStorage.getItem('jwt_token').slice(8)).email;
-		if(isLogin) props.history.push(`/${u_email}/main`);
+		if(isLogin){
+			const u_email = jwt_decode(localStorage.getItem('jwt_token').slice(8)).email;
+			props.history.push(`/${u_email}/main`);
+		} 
 	})
 	return (
 		<Log>

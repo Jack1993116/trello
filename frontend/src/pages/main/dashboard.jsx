@@ -10,11 +10,9 @@ import { SideNav, SideNavItem, SideNavLink, SideNavItemBtn } from '../utils/side
 import BoardListItem from './dashboard.part/boardlist.item/boardlist.item';
 import BoardListItemNew from './dashboard.part/boardlist.item/boardlist.item.new';
 import ContentBoard from './dashboard.part/content.boards';
-import CreateBoard from '../../component/createboard';
-import CreateTeam from '../../component/createteam/createteam';
 import TeamList from './dashboard.part/team.item';
 
-const Dashboard = ({ create, createT, setCreate, setCreateT, load, datas, stars, team, recentely, toRecently }) => {
+const Dashboard = ({ setCreate, setCreateT, load, datas, stars, team, recentely, toRecently }) => {
 
     return (
         <div style={{backgroundColor: "#fafbfc"}} >
@@ -56,8 +54,6 @@ const Dashboard = ({ create, createT, setCreate, setCreateT, load, datas, stars,
 					</div>
 				</div>
 			</div>
-			<CreateTeam show={createT} onHide={()=>{setCreateT(false)}} />
-			<CreateBoard show={create} onHide={()=>{setCreate(false)}} />
 		</div>
     )
 }
@@ -67,9 +63,7 @@ const mapStateToProps = (state) => {
         datas: state.board.base,
         stars: state.board.starred,
         recentely: state.board.recently,
-        team: state.board.team,
-        create: state.util.create,
-        createT: state.util.createT
+        team: state.board.team
     }
 }
 

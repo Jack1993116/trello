@@ -6,6 +6,7 @@ const listSchema = new db.Schema({
 });
 
 const baseSchema = new db.Schema({
+	user: {type: db.Schema.Types.ObjectId, ref: "users"},
 	boardTitle: String,
 	boardType: String,
 	colloborators: Array,
@@ -21,11 +22,9 @@ const insertNewData = (data) => {
 	const newL = new Item(data.list);
 	newD.save((err) => {
 		if(err) return handleError(err);
-		newD.list = newL._id;
+		newD.lists.push(newL._id);
 	})
 	return newD._id;
 }
 
-
-
-module.exports = { Base };
+module.exports = { Base, Item };
