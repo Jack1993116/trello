@@ -9,7 +9,7 @@ var { Data, Base, Star, Recently } = require('../models/board.model');
 router.post('/', passport.authenticate('register'), 
 	(req, res) => {
 		bcrypt.genSalt(10, (err, salt) => {
-			bcrypt.hash("req.user.password", salt, (err, hash) => {
+			bcrypt.hash(req.user.password, salt, (err, hash) => {
 				if(err) throw err;
 				let usr = {email:req.user.email, password:hash};
 				insertUser(usr);

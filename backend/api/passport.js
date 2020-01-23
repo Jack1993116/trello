@@ -37,14 +37,14 @@ passport.use('login',
 	}, async (username, password, done) => {
 		try{
 			let user = await findUser({email: username});
-			// console.log("DB:"+user);
+			console.log("DB:"+user);
 			if(user === "error"){
 				done(user, false);
 			}
 			if(user === null){
 				done(null, false, "user");
 			}
-			console.log(await bcrypt.compare(password, user.password));
+			console.log(await bcrypt.compare("req.user.password", user.password));
 			done(null, false);
 			// done(null, user);
 		} catch (err) {

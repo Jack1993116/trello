@@ -26,7 +26,7 @@ const INIT_STATE = {
 		}],
 	starred:[],
 	recently:[],
-	team:[]
+	team:[],
 }
 
 const boardReducer = (state=INIT_STATE, action) => {
@@ -65,3 +65,27 @@ const boardReducer = (state=INIT_STATE, action) => {
 }
 
 export default boardReducer;
+/*
+{
+			id: 1,
+			boardTitle:"Teams1",
+			boardType: "Private",
+			colloborators: [],
+			lists: { Todo:['a', 'b', 'c'], Doing:['1', '2', '3'], Done:['q','w','e'] },
+			bk_url:"https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1367x2048/e3f86fba993a9f7bf2ab03234b25a022/photo-1568313081041-dbd174f69e3b"
+		}, {
+			id: 3,
+			boardTitle:"Teams2",
+			boardType: "Private",
+			colloborators: [],
+			lists: { Todo:['d', 'f', 'e'], Doing:['4', '8', '9'], Done:['q','w','e'] },
+			bk_url:"https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/96b408b901dfccc9ff7517153e88b8f7/photo-1578750120916-a69a88bcf673"
+		}, {
+			id: 2,
+			boardTitle:"Teams3",
+			boardType: "Private",
+			colloborators: [],
+			lists: { Todo:['z', 'x', 'c'], Doing:['8', '4', '1'], Done:['q','w','e'] },
+			bk_url:"https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/7021d7a65a8f4484e456a499becc3c43/photo-1578951140687-196be174abde"
+		}
+*/
