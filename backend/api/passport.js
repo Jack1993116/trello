@@ -45,8 +45,8 @@ passport.use('login',
 				done(null, false, "user");
 			}
 			console.log(await bcrypt.compare("req.user.password", user.password));
-			done(null, false);
-			// done(null, user);
+			// done(null, false);
+			done(null, user);
 		} catch (err) {
 			console.log(err);
 			done(err, false);

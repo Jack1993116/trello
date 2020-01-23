@@ -17,7 +17,7 @@ import Team from './pages/team';
 
 import PrivateRoute from './api/utils/private.route';
 
-function App() {
+function App({isLogin, ...props}) {
   return (
     <Router>
       <Switch>

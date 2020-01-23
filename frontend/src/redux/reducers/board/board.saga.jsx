@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { call, all, put, takeEvery } from 'redux-saga/effects';
 
+import { SERVER_URL } from '../../../api/config/config';
 import BoardActionTypes from './board.action.type';
 import { loadedData, createNewBoard, toStarred, toRecently, addListItem } from './board.action';
 
@@ -14,7 +15,7 @@ function* loadData() {
 
 function* fetchDataFromDB() {
 	try{
-		const datas = yield axios.post("http://localhost:3000/board").then(res => res.json());
+		const datas = yield axios.post(SERVER_URL + "board").then(res => res.json());
 		put(loadedData(datas));
 	} catch(err){
 		console.log(err);
@@ -27,7 +28,7 @@ function* saveDBCreateBoard() {
 
 function* saveDBCreateBoardAsync({payload}) {
 	try{
-		axios.post("http://localhost:3000/board/create", payload);
+		axios.post(SERVER_URL + "board/create", payload);
 		put(createNewBoard(payload));
 	} catch(err){
 		console.log(err);

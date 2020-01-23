@@ -34,9 +34,10 @@ const boardReducer = (state=INIT_STATE, action) => {
 	switch(action.type) {
 		case BoardActionTypes.BOARD_DATA_TO_RECENTLY:
 			r = [...state.recently];
-
-			if(!r.includes(action.payload)) {
-				r.unshift(action.payload);
+			if(!state.starred.includes(action.payload)) {
+				if(!r.includes(action.payload)) {
+					r.unshift(action.payload);
+				}
 			}
 			
 			return { ...state, recently: r };
