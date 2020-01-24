@@ -13,7 +13,7 @@ import ContentBoard from './dashboard.part/content.boards';
 import TeamList from './dashboard.part/team.item';
 
 const Dashboard = ({ setCreate, setCreateT, load, datas, stars, team, recentely, toRecently }) => {
-
+	useEffect(() => {})
     return (
         <div style={{backgroundColor: "#fafbfc"}} >
 			<div >
@@ -58,15 +58,6 @@ const Dashboard = ({ setCreate, setCreateT, load, datas, stars, team, recentely,
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        datas: state.board.base,
-        stars: state.board.starred,
-        recentely: state.board.recently,
-        team: state.board.team
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
 	return {
 		load: () => dispatch(loadData()),
@@ -75,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(null, mapDispatchToProps)(Dashboard);

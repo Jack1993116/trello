@@ -64,7 +64,7 @@ const CreateBoard = ({ids, createBoard, show, onHide}) => {
 				</ul>
 			</Modal.Body>
 			<Modal.Footer>
-				<Link to={`/${board}/detail/${ids}`}>
+				<Link to={`/${board}/detail/new`} >
 					<PrimaryBtn size="sm" 
 						style={{fontSize: "12pt"}} 
 						disabled={active} 
@@ -76,7 +76,7 @@ const CreateBoard = ({ids, createBoard, show, onHide}) => {
 									boardType: title,
 									colloborators: [],
 									lists: {  },
-									bk_url:"https://trello-backgrounds.s3.amazonaws.com/SharedBackground/641x960/9c0a570b328ab427f18a15bfd2ffd838/photo-1568313081041-dbd174f69e3b.jpg"
+									bk_url:"https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1367x2048/e3f86fba993a9f7bf2ab03234b25a022/photo-1568313081041-dbd174f69e3b"
 							})}
 						} 
 					>

@@ -19,7 +19,7 @@ const DetailBoard = ({lists, ids, accessable, title_1, ...props}) => {
 								return <Note ids={ids} key={item} header={item} items={lists[item]} order={index} />
 							})
 						}
-						<AddNote />
+						<AddNote ids={ids} />
 					</div>
 				</div>
 			</div>

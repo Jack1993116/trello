@@ -8,11 +8,12 @@ import CreateTeam from '../../component/createteam/createteam';
 
 import { setCreate, setCreateT } from '../../redux/reducers/util/util.action';
 
-const Main = ({create, createT, setCreateT, setCreate}) => {
+const Main = ({create, createT, setCreateT, setCreate, datas, stars, recentely, team}) => {
+	React.useEffect(() => {})
 	return (
 		<div>
 			<Header0 />
-			<Dashboard />
+			<Dashboard datas={datas} stars={stars} recentely={recentely} team={team} />
 			<CreateTeam show={createT} onHide={()=>{setCreateT(false)}} />
 			<CreateBoard show={create} onHide={()=>{setCreate(false)}} />
 		</div>
@@ -21,6 +22,10 @@ const Main = ({create, createT, setCreateT, setCreate}) => {
 
 const mapStateToProps = (state) => {
     return {
+        datas: state.board.base,
+        stars: state.board.starred,
+        recentely: state.board.recently,
+        team: state.board.team,
         create: state.util.create,
         createT: state.util.createT
     }

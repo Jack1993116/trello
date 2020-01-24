@@ -1,5 +1,5 @@
 import BoardActionTypes from './board.action.type';
-import { getDataById } from '../../../api/utils/getDataById';
+import { getDataById, getDataIdById } from '../../../api/utils/getDataById';
 
 const INIT_STATE = {
 	base:[{
@@ -55,12 +55,24 @@ const boardReducer = (state=INIT_STATE, action) => {
 			}
 			
 			return { ...state, starred: r };
+		case BoardActionTypes.ADD_LIST:
+			tmp = state;
+			r = getDataById(tmp.base, action.payload.id);
+			r.lists[action.payload.title] = [];
+			pos = getDataIdById(tmp.base, action.payload.id);
+			tmp = [...tmp.base.slice(0, pos), r, ...tmp.base.slice(pos + 1, tmp.base.length)];
+			return {...state, base: tmp};
 		case BoardActionTypes.ADD_LIST_ITEM:
-			r = getDataById(state.base, action.payload.id).lists[action.payload.title].push(action.payload.item);
-			return { ...state };
+			tmp = state;
+			r = getDataById(state.base, action.payload.id);
+			r.lists[action.payload.title].push( action.payload.item);
+			pos = getDataIdById(tmp.base, action.payload.id);
+			tmp = [...tmp.base.slice(0, pos), r, ...tmp.base.slice(pos + 1, tmp.base.length)];
+			console.log(r);
+			return { ...state, base: tmp };
 		case BoardActionTypes.CREATE_NEW_BOARD:
-			r = state.base.push({...action.payload, id: "new"});
-			return { ...state };
+			// r = state.base.push({...action.payload, id: "new"});
+			return { ...state, base: [...state.base, {...action.payload, id:"new"}] };
 		default: return state;
 	}
 }

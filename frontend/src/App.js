@@ -27,7 +27,7 @@ function App({isLogin, ...props}) {
         </Route>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Singup} />
-        <PrivateRoute exact path="/search/:q" component={SearchPage} />
+        <PrivateRoute path="/search/:q" component={SearchPage} />
         <PrivateRoute exact path="/:user/main" component={Main} />
         <PrivateRoute path="/:title/detail/:ids" component={Detail} />
         <PrivateRoute path="/team" component={Team} />

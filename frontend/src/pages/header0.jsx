@@ -19,7 +19,7 @@ const Header0 = ({color="info-color-dark", fixed, transparent, searchoff, logout
 				<LogoBtn />
 				<div className="hd-btn-group-s">
 					<HeaderBtn icon="fa-home" url="/" />
-					<HeaderBtn icon="fa-user" value="Boards" url="/main" />
+					<HeaderBtn icon="fa-user" value="Boards" url="/login" />
 					{!searchoff&&<HeaderSearcher />}
 				</div>
 				<div className="hd-btn-group-s">
