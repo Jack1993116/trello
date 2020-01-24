@@ -21,12 +21,10 @@ const Login = ({login, isLogin, ...props}) => {
 	useEffect(()=>{
 		if(isLogin){
 			const token = localStorage.getItem('jwt_token');
-			if (token != null) {
-				const u_email = jwt_decode(token.slice(8)).email;
-				props.history.push(`/${u_email}/main`);
-			}
+			const u_email = jwt_decode(token.slice(8)).email;
+			props.history.push(`/${u_email}/main`);
 		} 
-	})
+	}, [isLogin])
 	return (
 		<Log>
 			<MDBCard>

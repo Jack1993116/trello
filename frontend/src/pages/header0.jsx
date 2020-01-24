@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { MDBNavbar, MDBNavItem, MDBNavbarBrand, MDBNavbarNav, MDBNavLink } from 'mdbreact';
 
@@ -8,7 +9,9 @@ import HeaderSearcher from '../component/utils/header.seacher';
 import AddMenu from './menus/menu.add';
 import MenuHint from './menus/menu.hint';
 
-const Header0 = ({color="info-color-dark", fixed, transparent, searchoff, ...props}) => {
+import {logout} from '../redux/reducers/auth/auth.action';
+
+const Header0 = ({color="info-color-dark", fixed, transparent, searchoff, logout, ...props}) => {
 	const [util, setUtil] = React.useState(0);
 	return (
 		<div>
@@ -23,7 +26,7 @@ const Header0 = ({color="info-color-dark", fixed, transparent, searchoff, ...pro
 					<HeaderBtn icon="fa-plus" url="#" onClick={() => {setUtil(1)}} />
 					<HeaderBtn icon="fa-info" url="#" onClick={() => {setUtil(2)}} />
 					<HeaderBtn icon="fa-bell" url="#" />
-					<HeaderBtn icon="" value="JR" classE="circle" url="/main" />
+					<HeaderBtn icon="" value="JR" classE="circle" url="#" onClick={() => {logout()}} />
 				</div>
 			</MDBNavbar>
 			{(util==1)&&<AddMenu setUtil={setUtil} />}
@@ -32,4 +35,10 @@ const Header0 = ({color="info-color-dark", fixed, transparent, searchoff, ...pro
 	)
 }
 
-export default withRouter(Header0);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		logout: () => dispatch(logout()),
+	}
+}
+
+export default connect(null, mapDispatchToProps)(Header0);

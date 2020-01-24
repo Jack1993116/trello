@@ -25,7 +25,7 @@ passport.use('register', new LocalStrategy({
 		if(user != null){
 			done(null, false, "user");
 		}
-
+		// done(null, false);
 		done(null, {email: username, password: password});
 	}))
 

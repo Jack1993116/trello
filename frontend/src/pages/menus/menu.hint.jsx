@@ -7,7 +7,7 @@ const Hint = ({ hints }) => {
 			<div style={{backgroundColor: `rgb(240, 173, 131)`, height: "170px"}} >
 				<img alt="hint" className="hint_img" src={hints.src} />
 			</div>
-			<h3 class="hint_txt">{hints.hint}</h3>
+			<h3 className="hint_txt">{hints.hint}</h3>
 		</Link>
     )
 }
